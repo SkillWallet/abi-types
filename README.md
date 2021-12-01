@@ -47,3 +47,27 @@ declare module 'ethers' {
 ```
 
 NOTE: It will ask you to **Implement interface SWContractFunctions**
+
+
+### All available types
+
+#### Abi types
+```ts
+- SWEvent -> {event, args}
+- SWContractFunctions -> main methods
+- SWContractEvents -> events > SWEvent[]
+- SWContractEventType -> event types
+```
+
+#### Abi lists
+```ts
+SkillWalletAbi: JsonFragment[]
+DitoCommunityAbi: JsonFragment[]
+```
+
+#### Other
+
+```ts
+JsonFragment
+JsonFragmentType
+```

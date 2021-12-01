@@ -1,5 +1,5 @@
 {
-  "name": "sw-types",
+  "name": "sw-abi-types",
   "version": "1.0.0",
   "description": "Skillwallet/DitoCommunity contract functions",
   "main": "dist/index.js",
