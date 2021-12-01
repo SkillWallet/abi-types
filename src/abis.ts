@@ -22,7 +22,7 @@ export interface JsonFragment {
   readonly gas?: string;
 }
 
-export const skillWalletAbi: any[] = [
+export const SkillWalletAbi: JsonFragment[] = [
   {
     inputs: [
       {
@@ -1049,7 +1049,7 @@ export const skillWalletAbi: any[] = [
   },
 ];
 
-export const communityAbi: any[] = [
+export const DitoCommunityAbi: JsonFragment[] = [
   {
     inputs: [
       {

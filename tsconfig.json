@@ -13,11 +13,14 @@
     "declarationDir": "dist",
     "outDir": "./dist",
     "rootDir": "src",
-    "preserveConstEnums": true,
+    "preserveConstEnums": false,
     "sourceMap": true,
     "strictNullChecks": true,
     "target": "es2016",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "isolatedModules": false
+    
   },
+  "transpileOnly": true,
   "include": ["src"]
 }

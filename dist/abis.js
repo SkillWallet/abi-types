@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.skillWalletAbi = [
+exports.SkillWalletAbi = [
     {
         inputs: [
             {
@@ -1026,7 +1026,7 @@ exports.skillWalletAbi = [
         type: "function",
     },
 ];
-exports.communityAbi = [
+exports.DitoCommunityAbi = [
     {
         inputs: [
             {

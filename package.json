@@ -6,7 +6,7 @@
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "generate-types": "tsc && node ./dist/generator.js"
+    "build": "tsc && node ./dist/generator.js && tsc"
   },
   "dependencies": {
     "@types/prettier": "^2.4.1",

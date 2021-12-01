@@ -16,5 +16,5 @@ export interface JsonFragment {
     readonly outputs?: ReadonlyArray<JsonFragmentType>;
     readonly gas?: string;
 }
-export declare const skillWalletAbi: any[];
-export declare const communityAbi: any[];
+export declare const SkillWalletAbi: JsonFragment[];
+export declare const DitoCommunityAbi: JsonFragment[];

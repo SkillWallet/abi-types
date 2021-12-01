@@ -121,7 +121,7 @@ export interface SWContractFunctions {
 export interface SWContractEvents {
     events: SWEvent;
 }
-export declare const enum SWContractEventType {
+export declare enum SWContractEventType {
     Approval = "Approval",
     ApprovalForAll = "ApprovalForAll",
     ChainlinkCancelled = "ChainlinkCancelled",
