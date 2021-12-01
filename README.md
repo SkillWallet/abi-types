@@ -15,7 +15,7 @@ Add dependency to you package.json
 {
   "dependencies": {
     ...
-    "sw-types": "git+https://github.com/SkillWallet/abi-types.git#main"
+    "sw-abi-types": "git+https://github.com/SkillWallet/abi-types.git#main"
   }
 }
 
