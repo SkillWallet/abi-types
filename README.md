@@ -22,7 +22,7 @@ Add dependency to you package.json
 ```
 
 ```cmd
-npm install sw-types
+npm install sw-abi-types
 ```
 
 
@@ -32,13 +32,13 @@ npm install sw-types
 #### Normal usage
 
 ```ts
-import { SWContractFunctions, SWContractEvents } from 'sw-types';
+import { SWContractFunctions, SWContractEvents } from 'sw-abi-types';
 ```
 
 If you are using ethers then you will want to extends Contracts class 
 
 ```ts
-import { SWContractFunctions, SWContractEvents } from 'sw-types';
+import { SWContractFunctions, SWContractEvents } from 'sw-abi-types';
 declare module 'ethers' {
   export class Contract extends BaseContract implements SWContractFunctions {
     readonly [key: string]: ContractFunction | any;
