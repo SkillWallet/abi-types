@@ -10,13 +10,14 @@
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "declarationDir": "dist",
     "outDir": "./dist",
+    "rootDir": "src",
     "preserveConstEnums": true,
     "sourceMap": true,
     "strictNullChecks": true,
-    "target": "es2016"
+    "target": "es2016",
+    "esModuleInterop": true
   },
-  "files": [
-    "./index.ts"
-  ]
+  "include": ["src"]
 }

@@ -4,9 +4,9 @@ const types = {
     address: "string",
     bool: "boolean",
     bytes32: "string",
-    bytes4: 'string',
+    bytes4: "string",
     uint256: "number",
-    uint16: 'number',
+    uint16: "number",
     string: "string",
     "address[]": "string[]",
     "string[]": "string[]",
@@ -20,7 +20,7 @@ const generateArguments = (config) => {
     })
         .join(",");
 };
-const getReturnTypes = (config, stateMutability, preffix) => {
+const getReturnTypes = (config, stateMutability) => {
     /*
       if there is only 1 argument and it has no name than we assume that
       the response is of primitive type
@@ -38,33 +38,33 @@ const getReturnTypes = (config, stateMutability, preffix) => {
     const args = generateArguments(config);
     if (stateMutability !== "view") {
         if (config.length > 1) {
-            return `{${args}, wait: () => Promise<${preffix}ContractEvents>}`;
+            return `{${args}, wait: () => Promise<SWContractEvents>}`;
         }
-        return `{wait: () => Promise<${preffix}ContractEvents>}`;
+        return `{wait: () => Promise<SWContractEvents>}`;
     }
     if (args.length) {
         return `{${args}}`;
     }
     return `void`;
 };
-const generateMainFunctions = (mainFunctions, preffix) => {
+const generateMainFunctions = (mainFunctions) => {
     return mainFunctions.reduce((prev, curr) => {
         return Object.assign(Object.assign({}, prev), { [curr.name]: {
                 instanceOf: "Function",
-                tsType: `(${generateArguments(curr.inputs)}) => Promise<${getReturnTypes(curr.outputs, curr.stateMutability, preffix)}>`,
+                tsType: `(${generateArguments(curr.inputs)}) => Promise<${getReturnTypes(curr.outputs, curr.stateMutability)}>`,
             } });
     }, {});
 };
-const generageEventTypes = (preffix) => {
+const generageEventTypes = () => {
     return {
         events: {
             type: "array",
-            title: `${preffix}Event`,
+            title: `SWEvent`,
             items: {
                 type: "object",
                 properties: {
                     event: {
-                        $ref: `#/definitions/${preffix}ContractEventType`,
+                        $ref: `#/definitions/SWContractEventType`,
                     },
                     args: {
                         tsType: "any",
@@ -76,7 +76,7 @@ const generageEventTypes = (preffix) => {
         },
     };
 };
-exports.SwTypeFactory = (abi, contractTypesPreffix) => {
+exports.SWTypeFactory = (abi) => {
     const { functions, functionNames, eventNames } = abi.reduce((prev, curr) => {
         if (curr.type === "function") {
             prev.functions.push(curr);
@@ -95,8 +95,8 @@ exports.SwTypeFactory = (abi, contractTypesPreffix) => {
     });
     return {
         definitions: {
-            [`${contractTypesPreffix}ContractEventType`]: {
-                title: `${contractTypesPreffix}ContractEventType`,
+            [`SWContractEventType`]: {
+                title: `SWContractEventType`,
                 enum: eventNames,
                 tsEnumNames: eventNames,
                 type: "string",
@@ -104,16 +104,16 @@ exports.SwTypeFactory = (abi, contractTypesPreffix) => {
         },
         items: [
             {
-                title: `${contractTypesPreffix}ContractFunctions`,
+                title: `SWContractFunctions`,
                 type: "object",
-                properties: generateMainFunctions(functions, contractTypesPreffix),
+                properties: generateMainFunctions(functions),
                 required: functionNames,
                 additionalProperties: false,
             },
             {
-                title: `${contractTypesPreffix}ContractEvents`,
+                title: `SWContractEvents`,
                 type: "object",
-                properties: generageEventTypes(contractTypesPreffix),
+                properties: generageEventTypes(),
                 required: ["events"],
                 additionalProperties: false,
             },
