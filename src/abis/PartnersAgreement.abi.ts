@@ -52,7 +52,7 @@ export const PartnersAgreementABI: JsonFragment[] = [
       {
         internalType: "uint256",
         name: "_type",
-        type: "string",
+        type: "uint256",
       },
       {
         internalType: "string",

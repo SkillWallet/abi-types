@@ -106,6 +106,7 @@ export interface SWContractFunctions {
   addNewContractAddressToAgreement: (contractAddress: string) => Promise<{wait: () => Promise<SWContractEvents>}>;
   addNewCoreTeamMembers: (member: string) => Promise<{wait: () => Promise<SWContractEvents>}>;
   addURL: (_url: string) => Promise<{wait: () => Promise<SWContractEvents>}>;
+  createActivity: (_type: number, _url: string) => Promise<{wait: () => Promise<SWContractEvents>}>;
   communityAddress: () => Promise<string>;
   coreTeamMembersCount: () => Promise<number>;
   getAgreementData: () => Promise<{data: string}>;

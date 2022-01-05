@@ -48,6 +48,24 @@ exports.PartnersAgreementABI = [
         type: "function",
     },
     {
+        inputs: [
+            {
+                internalType: "uint256",
+                name: "_type",
+                type: "uint256",
+            },
+            {
+                internalType: "string",
+                name: "_url",
+                type: "string",
+            },
+        ],
+        name: "createActivity",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+    },
+    {
         inputs: [],
         name: "communityAddress",
         outputs: [
