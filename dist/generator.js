@@ -11,13 +11,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const json_schema_to_typescript_1 = require("json-schema-to-typescript");
-const abis_1 = require("./abis");
+const index_1 = require("./abis/index");
 const type_factory_1 = require("./type-factory");
 function generate() {
     return __awaiter(this, void 0, void 0, function* () {
         // writeFileSync('sw-dito-contract-functions.d.ts', await compile(SwTypeFactory(communityAbi, 'SWDito'), 'SWDitoContractFunctions'));
-        fs_1.writeFileSync(`src/sw-contract-functions.ts`, yield json_schema_to_typescript_1.compile(type_factory_1.SWTypeFactory([...abis_1.SkillWalletAbi, ...abis_1.DitoCommunityAbi]), "SWContractFunctions", {
-            enableConstEnums: false
+        fs_1.writeFileSync(`src/sw-contract-functions.ts`, yield json_schema_to_typescript_1.compile(type_factory_1.SWTypeFactory([
+            ...index_1.DitoCommunityAbi,
+            ...index_1.SkillWalletAbi,
+            ...index_1.PartnersAgreementABI,
+            ...index_1.PartnersRegistryABI,
+        ]), "SWContractFunctions", {
+            enableConstEnums: false,
         }));
     });
 }

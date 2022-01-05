@@ -8,11 +8,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var SWContractEventType;
 (function (SWContractEventType) {
+    SWContractEventType["MemberAdded"] = "MemberAdded";
     SWContractEventType["Approval"] = "Approval";
     SWContractEventType["ApprovalForAll"] = "ApprovalForAll";
-    SWContractEventType["ChainlinkCancelled"] = "ChainlinkCancelled";
-    SWContractEventType["ChainlinkFulfilled"] = "ChainlinkFulfilled";
-    SWContractEventType["ChainlinkRequested"] = "ChainlinkRequested";
+    SWContractEventType["DiscordIDConnectedToSkillWallet"] = "DiscordIDConnectedToSkillWallet";
     SWContractEventType["OwnershipTransferred"] = "OwnershipTransferred";
     SWContractEventType["PubKeyAddedToSkillWallet"] = "PubKeyAddedToSkillWallet";
     SWContractEventType["SkillWalletActivated"] = "SkillWalletActivated";
@@ -20,10 +19,6 @@ var SWContractEventType;
     SWContractEventType["SkillWalletCommunityChanged"] = "SkillWalletCommunityChanged";
     SWContractEventType["SkillWalletCreated"] = "SkillWalletCreated";
     SWContractEventType["Transfer"] = "Transfer";
-    SWContractEventType["ValidationFailed"] = "ValidationFailed";
-    SWContractEventType["ValidationPassed"] = "ValidationPassed";
-    SWContractEventType["ValidationRequestIdSent"] = "ValidationRequestIdSent";
-    SWContractEventType["MemberAdded"] = "MemberAdded";
-    SWContractEventType["MemberLeft"] = "MemberLeft";
+    SWContractEventType["PartnersAgreementCreated"] = "PartnersAgreementCreated";
 })(SWContractEventType = exports.SWContractEventType || (exports.SWContractEventType = {}));
 //# sourceMappingURL=sw-contract-functions.js.map

@@ -6,9 +6,11 @@ export {
   // @ts-ignore
 } from "./sw-contract-functions";
 
+export { JsonFragment, JsonFragmentType } from "./abis";
+
 export {
   DitoCommunityAbi,
   SkillWalletAbi,
-  JsonFragment,
-  JsonFragmentType
-} from "./abis";
+  PartnersAgreementABI,
+  PartnersRegistryABI,
+} from "./abis/index";

@@ -1,6 +1,11 @@
 import { writeFileSync } from "fs";
 import { compile } from "json-schema-to-typescript";
-import { DitoCommunityAbi, SkillWalletAbi } from "./abis";
+import {
+  DitoCommunityAbi,
+  SkillWalletAbi,
+  PartnersAgreementABI,
+  PartnersRegistryABI,
+} from "./abis/index";
 import { SWTypeFactory } from "./type-factory";
 
 async function generate() {
@@ -8,10 +13,15 @@ async function generate() {
   writeFileSync(
     `src/sw-contract-functions.ts`,
     await compile(
-      SWTypeFactory([...SkillWalletAbi, ...DitoCommunityAbi]),
+      SWTypeFactory([
+        ...DitoCommunityAbi,
+        ...SkillWalletAbi,
+        ...PartnersAgreementABI,
+        ...PartnersRegistryABI,
+      ]),
       "SWContractFunctions",
       {
-        enableConstEnums: false
+        enableConstEnums: false,
       }
     )
   );

@@ -1,2 +1,3 @@
 export { SWEvent, SWContractFunctions, SWContractEvents, SWContractEventType, } from "./sw-contract-functions";
-export { DitoCommunityAbi, SkillWalletAbi, JsonFragment, JsonFragmentType } from "./abis";
+export { JsonFragment, JsonFragmentType } from "./abis";
+export { DitoCommunityAbi, SkillWalletAbi, PartnersAgreementABI, PartnersRegistryABI, } from "./abis/index";
