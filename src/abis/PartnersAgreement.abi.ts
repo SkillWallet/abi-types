@@ -48,6 +48,24 @@ export const PartnersAgreementABI: JsonFragment[] = [
     type: "function",
   },
   {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_type",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "_url",
+        type: "string",
+      },
+    ],
+    name: "createActivity",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
     inputs: [],
     name: "communityAddress",
     outputs: [
