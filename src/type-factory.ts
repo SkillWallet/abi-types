@@ -1,5 +1,5 @@
 import { JSONSchema4 } from "json-schema";
-import { JsonFragment, JsonFragmentType } from "./abis";
+import { JsonFragment, JsonFragmentType } from "./abis.model";
 
 const types: any = {
   address: "string",

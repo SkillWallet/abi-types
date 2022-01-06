@@ -1,4 +1,4 @@
-import { JsonFragment } from "../abis";
+import { JsonFragment } from "../abis.model";
 
 export const PartnersAgreementABI: JsonFragment[] = [
   {
