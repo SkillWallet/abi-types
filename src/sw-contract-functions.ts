@@ -13,27 +13,31 @@ export type SWEvent = {
 
 export interface SWContractFunctions {
   activeMembersCount: () => Promise<number>;
+  addProjectId: (projectId: number) => Promise<{wait: () => Promise<SWContractEvents>}>;
   balanceOf: (owner: string) => Promise<number>;
   claimableSkillWallets: () => Promise<boolean>;
-  coreActiveMembersCount: () => Promise<number>;
-  coreMembersAllowed: () => Promise<number>;
   creditsToTransfer: () => Promise<number>;
   distributedTownAddr: () => Promise<string>;
   ditoCreditsAddr: () => Promise<string>;
   ditoCreditsHolder: () => Promise<string>;
+  getMemberAddresses: () => Promise<string[]>;
   getMembers: () => Promise<number[]>;
+  getProjects: () => Promise<number[]>;
   getSkillWalletAddress: () => Promise<string>;
   getTemplate: () => Promise<number>;
   getTokenId: () => Promise<number>;
   getTreasuryBalance: () => Promise<number>;
   gigsAddr: () => Promise<string>;
   isMember: (member: string) => Promise<boolean>;
-  joinNewMember: (uri: string, credits: number) => Promise<{wait: () => Promise<SWContractEvents>}>;
+  joinNewMember: (uri: string, role: number, credits: number) => Promise<{wait: () => Promise<SWContractEvents>}>;
   markAsMigrated: (_migratedTo: string) => Promise<{wait: () => Promise<SWContractEvents>}>;
+  memberAddresses: () => Promise<string>;
   metadataUri: () => Promise<string>;
   migrateData: () => Promise<{wait: () => Promise<SWContractEvents>}>;
   migratedFrom: () => Promise<string>;
   migratedTo: () => Promise<string>;
+  projectIds: () => Promise<number>;
+  scarcityScore: () => Promise<number>;
   setMetadataUri: (uri: string) => Promise<{wait: () => Promise<SWContractEvents>}>;
   skillWalletIds: () => Promise<number>;
   status: () => Promise<undefined>;
@@ -138,6 +142,7 @@ export interface SWContractEvents {
 
 export enum SWContractEventType {
   MemberAdded = "MemberAdded",
+  MemberLeft = "MemberLeft",
   Approval = "Approval",
   ApprovalForAll = "ApprovalForAll",
   DiscordIDConnectedToSkillWallet = "DiscordIDConnectedToSkillWallet",
@@ -148,5 +153,6 @@ export enum SWContractEventType {
   SkillWalletCommunityChanged = "SkillWalletCommunityChanged",
   SkillWalletCreated = "SkillWalletCreated",
   Transfer = "Transfer",
+  ActivityCreated = "ActivityCreated",
   PartnersAgreementCreated = "PartnersAgreementCreated"
 }

@@ -2,505 +2,587 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DitoCommunityAbi = [
     {
-        inputs: [
+        "inputs": [
             {
-                internalType: "address",
-                name: "_distributedTownAddr",
-                type: "address",
+                "internalType": "address",
+                "name": "_distributedTownAddr",
+                "type": "address"
             },
             {
-                internalType: "bool",
-                name: "_isDitoNative",
-                type: "bool",
+                "internalType": "bool",
+                "name": "_isDitoNative",
+                "type": "bool"
             },
             {
-                internalType: "string",
-                name: "_url",
-                type: "string",
+                "internalType": "string",
+                "name": "_url",
+                "type": "string"
             },
             {
-                internalType: "address",
-                name: "_addrProvider",
-                type: "address",
+                "internalType": "address",
+                "name": "_addrProvider",
+                "type": "address"
             },
             {
-                internalType: "uint256",
-                name: "_totalMembersAllowed",
-                type: "uint256",
+                "internalType": "uint256",
+                "name": "_totalMembersAllowed",
+                "type": "uint256"
             },
             {
-                internalType: "bool",
-                name: "_claimableSkillWallets",
-                type: "bool",
+                "internalType": "bool",
+                "name": "_claimableSkillWallets",
+                "type": "bool"
             },
             {
-                internalType: "address",
-                name: "_migrateFrom",
-                type: "address",
+                "internalType": "address",
+                "name": "_migrateFrom",
+                "type": "address"
             },
             {
-                internalType: "uint256",
-                name: "_version",
-                type: "uint256",
-            },
+                "internalType": "uint256",
+                "name": "_version",
+                "type": "uint256"
+            }
         ],
-        stateMutability: "nonpayable",
-        type: "constructor",
+        "stateMutability": "nonpayable",
+        "type": "constructor"
     },
     {
-        anonymous: false,
-        inputs: [
+        "anonymous": false,
+        "inputs": [
             {
-                indexed: true,
-                internalType: "address",
-                name: "_member",
-                type: "address",
+                "indexed": true,
+                "internalType": "address",
+                "name": "_member",
+                "type": "address"
             },
             {
-                indexed: false,
-                internalType: "uint256",
-                name: "_skillWalletTokenId",
-                type: "uint256",
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_skillWalletTokenId",
+                "type": "uint256"
             },
             {
-                indexed: false,
-                internalType: "uint256",
-                name: "_transferredTokens",
-                type: "uint256",
-            },
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_transferredTokens",
+                "type": "uint256"
+            }
         ],
-        name: "MemberAdded",
-        type: "event",
+        "name": "MemberAdded",
+        "type": "event"
     },
     {
-        inputs: [],
-        name: "activeMembersCount",
-        outputs: [
+        "anonymous": false,
+        "inputs": [
             {
-                internalType: "uint16",
-                name: "",
-                type: "uint16",
-            },
+                "indexed": true,
+                "internalType": "address",
+                "name": "_member",
+                "type": "address"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "name": "MemberLeft",
+        "type": "event"
     },
     {
-        inputs: [
+        "inputs": [],
+        "name": "activeMembersCount",
+        "outputs": [
             {
-                internalType: "address",
-                name: "member",
-                type: "address",
-            },
+                "internalType": "uint16",
+                "name": "",
+                "type": "uint16"
+            }
         ],
-        name: "balanceOf",
-        outputs: [
-            {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "claimableSkillWallets",
-        outputs: [
+        "inputs": [
             {
-                internalType: "bool",
-                name: "",
-                type: "bool",
-            },
+                "internalType": "uint256",
+                "name": "projectId",
+                "type": "uint256"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "name": "addProjectId",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "coreActiveMembersCount",
-        outputs: [
+        "inputs": [
             {
-                internalType: "uint16",
-                name: "",
-                type: "uint16",
-            },
+                "internalType": "address",
+                "name": "member",
+                "type": "address"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "name": "balanceOf",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "coreMembersAllowed",
-        outputs: [
+        "inputs": [],
+        "name": "claimableSkillWallets",
+        "outputs": [
             {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "creditsToTransfer",
-        outputs: [
+        "inputs": [],
+        "name": "creditsToTransfer",
+        "outputs": [
             {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "distributedTownAddr",
-        outputs: [
+        "inputs": [],
+        "name": "distributedTownAddr",
+        "outputs": [
             {
-                internalType: "address",
-                name: "",
-                type: "address",
-            },
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "ditoCreditsAddr",
-        outputs: [
+        "inputs": [],
+        "name": "ditoCreditsAddr",
+        "outputs": [
             {
-                internalType: "address",
-                name: "",
-                type: "address",
-            },
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "ditoCreditsHolder",
-        outputs: [
+        "inputs": [],
+        "name": "ditoCreditsHolder",
+        "outputs": [
             {
-                internalType: "address",
-                name: "",
-                type: "address",
-            },
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "getMembers",
-        outputs: [
+        "inputs": [],
+        "name": "getMemberAddresses",
+        "outputs": [
             {
-                internalType: "uint256[]",
-                name: "",
-                type: "uint256[]",
-            },
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "getSkillWalletAddress",
-        outputs: [
+        "inputs": [],
+        "name": "getMembers",
+        "outputs": [
             {
-                internalType: "address",
-                name: "",
-                type: "address",
-            },
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            }
         ],
-        stateMutability: "nonpayable",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "getTemplate",
-        outputs: [
+        "inputs": [],
+        "name": "getProjects",
+        "outputs": [
             {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "getTokenId",
-        outputs: [
+        "inputs": [],
+        "name": "getSkillWalletAddress",
+        "outputs": [
             {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "nonpayable",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "getTreasuryBalance",
-        outputs: [
+        "inputs": [],
+        "name": "getTemplate",
+        "outputs": [
             {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "gigsAddr",
-        outputs: [
+        "inputs": [],
+        "name": "getTokenId",
+        "outputs": [
             {
-                internalType: "address",
-                name: "",
-                type: "address",
-            },
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [
+        "inputs": [],
+        "name": "getTreasuryBalance",
+        "outputs": [
             {
-                internalType: "address",
-                name: "member",
-                type: "address",
-            },
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
         ],
-        name: "isMember",
-        outputs: [
-            {
-                internalType: "bool",
-                name: "",
-                type: "bool",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [
+        "inputs": [],
+        "name": "gigsAddr",
+        "outputs": [
             {
-                internalType: "string",
-                name: "uri",
-                type: "string",
-            },
-            {
-                internalType: "uint256",
-                name: "credits",
-                type: "uint256",
-            },
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
         ],
-        name: "joinNewMember",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [
+        "inputs": [
             {
-                internalType: "address",
-                name: "_migratedTo",
-                type: "address",
-            },
+                "internalType": "address",
+                "name": "member",
+                "type": "address"
+            }
         ],
-        name: "markAsMigrated",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
+        "name": "isMember",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "metadataUri",
-        outputs: [
+        "inputs": [
             {
-                internalType: "string",
-                name: "",
-                type: "string",
+                "internalType": "string",
+                "name": "uri",
+                "type": "string"
             },
+            {
+                "internalType": "uint256",
+                "name": "role",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "credits",
+                "type": "uint256"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "name": "joinNewMember",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "migrateData",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_migratedTo",
+                "type": "address"
+            }
+        ],
+        "name": "markAsMigrated",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "migratedFrom",
-        outputs: [
+        "inputs": [
             {
-                internalType: "address",
-                name: "",
-                type: "address",
-            },
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "name": "memberAddresses",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "migratedTo",
-        outputs: [
+        "inputs": [],
+        "name": "metadataUri",
+        "outputs": [
             {
-                internalType: "address",
-                name: "",
-                type: "address",
-            },
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [
-            {
-                internalType: "string",
-                name: "uri",
-                type: "string",
-            },
-        ],
-        name: "setMetadataUri",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
+        "inputs": [],
+        "name": "migrateData",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
     },
     {
-        inputs: [
+        "inputs": [],
+        "name": "migratedFrom",
+        "outputs": [
             {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
         ],
-        name: "skillWalletIds",
-        outputs: [
-            {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "status",
-        outputs: [
+        "inputs": [],
+        "name": "migratedTo",
+        "outputs": [
             {
-                internalType: "enum ICommunity.STATUS",
-                name: "",
-                type: "uint8",
-            },
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "tokenId",
-        outputs: [
+        "inputs": [
             {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "name": "projectIds",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "totalMembersAllowed",
-        outputs: [
+        "inputs": [],
+        "name": "scarcityScore",
+        "outputs": [
             {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [
+        "inputs": [
             {
-                internalType: "address",
-                name: "to",
-                type: "address",
-            },
-            {
-                internalType: "uint256",
-                name: "amount",
-                type: "uint256",
-            },
+                "internalType": "string",
+                "name": "uri",
+                "type": "string"
+            }
         ],
-        name: "transferCredits",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
+        "name": "setMetadataUri",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
     },
     {
-        inputs: [
+        "inputs": [
             {
-                internalType: "address",
-                name: "from",
-                type: "address",
-            },
-            {
-                internalType: "uint256",
-                name: "amount",
-                type: "uint256",
-            },
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
         ],
-        name: "transferToCommunity",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
+        "name": "skillWalletIds",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "treasuryAddr",
-        outputs: [
+        "inputs": [],
+        "name": "status",
+        "outputs": [
             {
-                internalType: "address",
-                name: "",
-                type: "address",
-            },
+                "internalType": "enum ICommunity.STATUS",
+                "name": "",
+                "type": "uint8"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
     {
-        inputs: [],
-        name: "version",
-        outputs: [
+        "inputs": [],
+        "name": "tokenId",
+        "outputs": [
             {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
         ],
-        stateMutability: "view",
-        type: "function",
+        "stateMutability": "view",
+        "type": "function"
     },
+    {
+        "inputs": [],
+        "name": "totalMembersAllowed",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "transferCredits",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "transferToCommunity",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "treasuryAddr",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "version",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
 ];
 //# sourceMappingURL=ICommunity.abi.js.map

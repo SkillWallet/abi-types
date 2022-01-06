@@ -66,6 +66,31 @@ export const PartnersAgreementABI: JsonFragment[] = [
     type: "function",
   },
   {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "tokenId",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "_type",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "string",
+        name: "_url",
+        type: "string",
+      },
+    ],
+    name: "ActivityCreated",
+    type: "event",
+  },
+  {
     inputs: [],
     name: "communityAddress",
     outputs: [
