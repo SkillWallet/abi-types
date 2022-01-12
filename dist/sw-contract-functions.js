@@ -20,7 +20,9 @@ var SWContractEventType;
     SWContractEventType["SkillWalletCommunityChanged"] = "SkillWalletCommunityChanged";
     SWContractEventType["SkillWalletCreated"] = "SkillWalletCreated";
     SWContractEventType["Transfer"] = "Transfer";
-    SWContractEventType["ActivityCreated"] = "ActivityCreated";
+    SWContractEventType["CoreTeamMemberAdded"] = "CoreTeamMemberAdded";
+    SWContractEventType["PartnersContractAdded"] = "PartnersContractAdded";
+    SWContractEventType["UrlAdded"] = "UrlAdded";
     SWContractEventType["PartnersAgreementCreated"] = "PartnersAgreementCreated";
 })(SWContractEventType = exports.SWContractEventType || (exports.SWContractEventType = {}));
 //# sourceMappingURL=sw-contract-functions.js.map
