@@ -5,6 +5,11 @@ export const PartnersAgreementABI: JsonFragment[] = [
     "inputs": [
       {
         "internalType": "address",
+        "name": "skillWalletAddr",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
         "name": "_membershipFactory",
         "type": "address"
       },
@@ -54,21 +59,6 @@ export const PartnersAgreementABI: JsonFragment[] = [
             "internalType": "uint256",
             "name": "interactionsCount",
             "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "coreTeamMembersCount",
-            "type": "uint256"
-          },
-          {
-            "internalType": "address[]",
-            "name": "whitelistedTeamMembers",
-            "type": "address[]"
-          },
-          {
-            "internalType": "address",
-            "name": "interactionsQueryServer",
-            "type": "address"
           }
         ],
         "internalType": "struct Types.PartnersAgreementData",
@@ -78,19 +68,6 @@ export const PartnersAgreementABI: JsonFragment[] = [
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "address",
-        "name": "_member",
-        "type": "address"
-      }
-    ],
-    "name": "CoreTeamMemberAdded",
-    "type": "event"
   },
   {
     "anonymous": false,
@@ -154,19 +131,6 @@ export const PartnersAgreementABI: JsonFragment[] = [
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "member",
-        "type": "address"
-      }
-    ],
-    "name": "addNewCoreTeamMembers",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "string",
         "name": "_url",
         "type": "string"
@@ -185,19 +149,6 @@ export const PartnersAgreementABI: JsonFragment[] = [
         "internalType": "address",
         "name": "",
         "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "coreTeamMembersCount",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -254,6 +205,19 @@ export const PartnersAgreementABI: JsonFragment[] = [
   },
   {
     "inputs": [],
+    "name": "getActivitiesAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "getAgreementData",
     "outputs": [
       {
@@ -297,21 +261,6 @@ export const PartnersAgreementABI: JsonFragment[] = [
             "internalType": "uint256",
             "name": "interactionsCount",
             "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "coreTeamMembersCount",
-            "type": "uint256"
-          },
-          {
-            "internalType": "address[]",
-            "name": "whitelistedTeamMembers",
-            "type": "address[]"
-          },
-          {
-            "internalType": "address",
-            "name": "interactionsQueryServer",
-            "type": "address"
           }
         ],
         "internalType": "struct Types.PartnersAgreementData",
@@ -325,19 +274,6 @@ export const PartnersAgreementABI: JsonFragment[] = [
   {
     "inputs": [],
     "name": "getAllMembers",
-    "outputs": [
-      {
-        "internalType": "address[]",
-        "name": "",
-        "type": "address[]"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getCoreTeamMembers",
     "outputs": [
       {
         "internalType": "address[]",
@@ -395,6 +331,19 @@ export const PartnersAgreementABI: JsonFragment[] = [
   },
   {
     "inputs": [],
+    "name": "getSkillWalletAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "getURLs",
     "outputs": [
       {
@@ -409,25 +358,6 @@ export const PartnersAgreementABI: JsonFragment[] = [
   {
     "inputs": [],
     "name": "isActive",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "name": "isCoreTeamMember",
     "outputs": [
       {
         "internalType": "bool",
