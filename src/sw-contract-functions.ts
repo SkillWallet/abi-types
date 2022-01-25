@@ -162,5 +162,6 @@ export enum SWContractEventType {
   CoreTeamMemberAdded = "CoreTeamMemberAdded",
   PartnersContractAdded = "PartnersContractAdded",
   UrlAdded = "UrlAdded",
+  TaskTaken = "TaskTaken",
   PartnersAgreementCreated = "PartnersAgreementCreated"
 }

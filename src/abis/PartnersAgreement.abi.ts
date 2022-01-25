@@ -2,627 +2,633 @@ import { JsonFragment } from "../abis.model";
 
 export const PartnersAgreementABI: JsonFragment[] = [
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_membershipFactory",
-        "type": "address"
+        internalType: "address",
+        name: "_membershipFactory",
+        type: "address",
       },
       {
-        "internalType": "address",
-        "name": "_interactionNFTFactory",
-        "type": "address"
+        internalType: "address",
+        name: "_interactionNFTFactory",
+        type: "address",
       },
       {
-        "components": [
+        components: [
           {
-            "internalType": "uint256",
-            "name": "version",
-            "type": "uint256"
+            internalType: "uint256",
+            name: "version",
+            type: "uint256",
           },
           {
-            "internalType": "address",
-            "name": "owner",
-            "type": "address"
+            internalType: "address",
+            name: "owner",
+            type: "address",
           },
           {
-            "internalType": "address",
-            "name": "communityAddress",
-            "type": "address"
+            internalType: "address",
+            name: "communityAddress",
+            type: "address",
           },
           {
-            "internalType": "address[]",
-            "name": "partnersContracts",
-            "type": "address[]"
+            internalType: "address[]",
+            name: "partnersContracts",
+            type: "address[]",
           },
           {
-            "internalType": "uint256",
-            "name": "rolesCount",
-            "type": "uint256"
+            internalType: "uint256",
+            name: "rolesCount",
+            type: "uint256",
           },
           {
-            "internalType": "address",
-            "name": "interactionContract",
-            "type": "address"
+            internalType: "address",
+            name: "interactionContract",
+            type: "address",
           },
           {
-            "internalType": "address",
-            "name": "membershipContract",
-            "type": "address"
+            internalType: "address",
+            name: "membershipContract",
+            type: "address",
           },
           {
-            "internalType": "uint256",
-            "name": "interactionsCount",
-            "type": "uint256"
+            internalType: "uint256",
+            name: "interactionsCount",
+            type: "uint256",
           },
           {
-            "internalType": "uint256",
-            "name": "coreTeamMembersCount",
-            "type": "uint256"
+            internalType: "uint256",
+            name: "coreTeamMembersCount",
+            type: "uint256",
           },
           {
-            "internalType": "address[]",
-            "name": "whitelistedTeamMembers",
-            "type": "address[]"
+            internalType: "address[]",
+            name: "whitelistedTeamMembers",
+            type: "address[]",
           },
           {
-            "internalType": "address",
-            "name": "interactionsQueryServer",
-            "type": "address"
-          }
+            internalType: "address",
+            name: "interactionsQueryServer",
+            type: "address",
+          },
         ],
-        "internalType": "struct Types.PartnersAgreementData",
-        "name": "pa",
-        "type": "tuple"
-      }
+        internalType: "struct Types.PartnersAgreementData",
+        name: "pa",
+        type: "tuple",
+      },
     ],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
+    stateMutability: "nonpayable",
+    type: "constructor",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "_member",
-        "type": "address"
-      }
+        indexed: false,
+        internalType: "address",
+        name: "_member",
+        type: "address",
+      },
     ],
-    "name": "CoreTeamMemberAdded",
-    "type": "event"
+    name: "CoreTeamMemberAdded",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": false,
-        "internalType": "address",
-        "name": "_contract",
-        "type": "address"
-      }
+        indexed: false,
+        internalType: "address",
+        name: "_contract",
+        type: "address",
+      },
     ],
-    "name": "PartnersContractAdded",
-    "type": "event"
+    name: "PartnersContractAdded",
+    type: "event",
   },
   {
-    "anonymous": false,
-    "inputs": [
+    anonymous: false,
+    inputs: [
       {
-        "indexed": false,
-        "internalType": "string",
-        "name": "_url",
-        "type": "string"
-      }
+        indexed: false,
+        internalType: "string",
+        name: "_url",
+        type: "string",
+      },
     ],
-    "name": "UrlAdded",
-    "type": "event"
+    name: "UrlAdded",
+    type: "event",
   },
   {
-    "inputs": [],
-    "name": "activatePA",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    inputs: [],
+    name: "activatePA",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "activities",
-    "outputs": [
+    inputs: [],
+    name: "activities",
+    outputs: [
       {
-        "internalType": "contract IActivities",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "contract IActivities",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "contractAddress",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "contractAddress",
+        type: "address",
+      },
     ],
-    "name": "addNewContractAddressToAgreement",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "addNewContractAddressToAgreement",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "member",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "member",
+        type: "address",
+      },
     ],
-    "name": "addNewCoreTeamMembers",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "addNewCoreTeamMembers",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "string",
-        "name": "_url",
-        "type": "string"
-      }
+        internalType: "string",
+        name: "_url",
+        type: "string",
+      },
     ],
-    "name": "addURL",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "addURL",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "communityAddress",
-    "outputs": [
+    inputs: [],
+    name: "communityAddress",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "coreTeamMembersCount",
-    "outputs": [
+    inputs: [],
+    name: "coreTeamMembersCount",
+    outputs: [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "uint256",
-        "name": "_type",
-        "type": "uint256"
+        internalType: "uint256",
+        name: "_type",
+        type: "uint256",
       },
       {
-        "internalType": "string",
-        "name": "_uri",
-        "type": "string"
-      }
+        internalType: "string",
+        name: "_uri",
+        type: "string",
+      },
     ],
-    "name": "createActivity",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "createActivity",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "_factory",
-        "type": "address"
+        internalType: "address",
+        name: "_factory",
+        type: "address",
       },
       {
-        "internalType": "address",
-        "name": "_bot",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "_bot",
+        type: "address",
+      },
     ],
-    "name": "deployActivities",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "deployActivities",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "uint256",
-        "name": "_activityId",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "_activityId",
+        type: "uint256",
+      },
     ],
-    "name": "finilizeTask",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "finilizeTask",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "getAgreementData",
-    "outputs": [
+    inputs: [],
+    name: "getAgreementData",
+    outputs: [
       {
-        "components": [
+        components: [
           {
-            "internalType": "uint256",
-            "name": "version",
-            "type": "uint256"
+            internalType: "uint256",
+            name: "version",
+            type: "uint256",
           },
           {
-            "internalType": "address",
-            "name": "owner",
-            "type": "address"
+            internalType: "address",
+            name: "owner",
+            type: "address",
           },
           {
-            "internalType": "address",
-            "name": "communityAddress",
-            "type": "address"
+            internalType: "address",
+            name: "communityAddress",
+            type: "address",
           },
           {
-            "internalType": "address[]",
-            "name": "partnersContracts",
-            "type": "address[]"
+            internalType: "address[]",
+            name: "partnersContracts",
+            type: "address[]",
           },
           {
-            "internalType": "uint256",
-            "name": "rolesCount",
-            "type": "uint256"
+            internalType: "uint256",
+            name: "rolesCount",
+            type: "uint256",
           },
           {
-            "internalType": "address",
-            "name": "interactionContract",
-            "type": "address"
+            internalType: "address",
+            name: "interactionContract",
+            type: "address",
           },
           {
-            "internalType": "address",
-            "name": "membershipContract",
-            "type": "address"
+            internalType: "address",
+            name: "membershipContract",
+            type: "address",
           },
           {
-            "internalType": "uint256",
-            "name": "interactionsCount",
-            "type": "uint256"
+            internalType: "uint256",
+            name: "interactionsCount",
+            type: "uint256",
           },
           {
-            "internalType": "uint256",
-            "name": "coreTeamMembersCount",
-            "type": "uint256"
+            internalType: "uint256",
+            name: "coreTeamMembersCount",
+            type: "uint256",
           },
           {
-            "internalType": "address[]",
-            "name": "whitelistedTeamMembers",
-            "type": "address[]"
+            internalType: "address[]",
+            name: "whitelistedTeamMembers",
+            type: "address[]",
           },
           {
-            "internalType": "address",
-            "name": "interactionsQueryServer",
-            "type": "address"
-          }
+            internalType: "address",
+            name: "interactionsQueryServer",
+            type: "address",
+          },
         ],
-        "internalType": "struct Types.PartnersAgreementData",
-        "name": "",
-        "type": "tuple"
-      }
+        internalType: "struct Types.PartnersAgreementData",
+        name: "",
+        type: "tuple",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "getAllMembers",
-    "outputs": [
+    inputs: [],
+    name: "getAllMembers",
+    outputs: [
       {
-        "internalType": "address[]",
-        "name": "",
-        "type": "address[]"
-      }
+        internalType: "address[]",
+        name: "",
+        type: "address[]",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "getCoreTeamMembers",
-    "outputs": [
+    inputs: [],
+    name: "getCoreTeamMembers",
+    outputs: [
       {
-        "internalType": "address[]",
-        "name": "",
-        "type": "address[]"
-      }
+        internalType: "address[]",
+        name: "",
+        type: "address[]",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "getImportedAddresses",
-    "outputs": [
+    inputs: [],
+    name: "getImportedAddresses",
+    outputs: [
       {
-        "internalType": "address[]",
-        "name": "",
-        "type": "address[]"
-      }
+        internalType: "address[]",
+        name: "",
+        type: "address[]",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "user",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "user",
+        type: "address",
+      },
     ],
-    "name": "getInteractionNFT",
-    "outputs": [
+    name: "getInteractionNFT",
+    outputs: [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "getInteractionNFTContractAddress",
-    "outputs": [
+    inputs: [],
+    name: "getInteractionNFTContractAddress",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "getURLs",
-    "outputs": [
+    inputs: [],
+    name: "getURLs",
+    outputs: [
       {
-        "internalType": "string[]",
-        "name": "",
-        "type": "string[]"
-      }
+        internalType: "string[]",
+        name: "",
+        type: "string[]",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "isActive",
-    "outputs": [
+    inputs: [],
+    name: "isActive",
+    outputs: [
       {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "name": "isCoreTeamMember",
-    "outputs": [
+    name: "isCoreTeamMember",
+    outputs: [
       {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "string",
-        "name": "_url",
-        "type": "string"
-      }
+        internalType: "string",
+        name: "_url",
+        type: "string",
+      },
     ],
-    "name": "isURLListed",
-    "outputs": [
+    name: "isURLListed",
+    outputs: [
       {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "membershipAddress",
-    "outputs": [
+    inputs: [],
+    name: "membershipAddress",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
+        internalType: "address",
+        name: "",
+        type: "address",
       },
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
+        internalType: "address",
+        name: "",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
       {
-        "internalType": "bytes",
-        "name": "",
-        "type": "bytes"
-      }
+        internalType: "bytes",
+        name: "",
+        type: "bytes",
+      },
     ],
-    "name": "onERC721Received",
-    "outputs": [
+    name: "onERC721Received",
+    outputs: [
       {
-        "internalType": "bytes4",
-        "name": "",
-        "type": "bytes4"
-      }
+        internalType: "bytes4",
+        name: "",
+        type: "bytes4",
+      },
     ],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "owner",
-    "outputs": [
+    inputs: [],
+    name: "owner",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
-    "name": "partnersContracts",
-    "outputs": [
+    name: "partnersContracts",
+    outputs: [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "string",
-        "name": "_url",
-        "type": "string"
-      }
+        internalType: "string",
+        name: "_url",
+        type: "string",
+      },
     ],
-    "name": "removeURL",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "removeURL",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "rolesCount",
-    "outputs": [
+    inputs: [],
+    name: "rolesCount",
+    outputs: [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "uint256",
-        "name": "_activityId",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "_activityId",
+        type: "uint256",
+      },
     ],
-    "name": "takeTask",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "takeTask",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    anonymous: false,
+    inputs: [],
+    name: "TaskTaken",
+    type: "event",
+  },
+  {
+    inputs: [
       {
-        "internalType": "address",
-        "name": "user",
-        "type": "address"
+        internalType: "address",
+        name: "user",
+        type: "address",
       },
       {
-        "internalType": "uint256",
-        "name": "amountOfInteractions",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "amountOfInteractions",
+        type: "uint256",
+      },
     ],
-    "name": "transferInteractionNFTs",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    name: "transferInteractionNFTs",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
   },
   {
-    "inputs": [
+    inputs: [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
-    "name": "urls",
-    "outputs": [
+    name: "urls",
+    outputs: [
       {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
+    stateMutability: "view",
+    type: "function",
   },
   {
-    "inputs": [],
-    "name": "version",
-    "outputs": [
+    inputs: [],
+    name: "version",
+    outputs: [
       {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
     ],
-    "stateMutability": "view",
-    "type": "function"
-  }
+    stateMutability: "view",
+    type: "function",
+  },
 ];

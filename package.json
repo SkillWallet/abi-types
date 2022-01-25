@@ -1,6 +1,6 @@
 {
-  "name": "sw-abi-types",
-  "version": "1.0.0",
+  "name": "@skill-wallet/sw-abi-types",
+  "version": "0.0.12",
   "description": "Skillwallet/DitoCommunity contract functions",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -18,5 +18,13 @@
   "devDependencies": {
     "@types/node": "^13.13.52",
     "fs": "0.0.1-security"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkillWallet/abi-types.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SkillWallet/abi-types/issues"
+  },
+  "homepage": "https://github.com/SkillWallet/abi-types#readme"
 }
