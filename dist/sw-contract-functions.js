@@ -8,8 +8,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var SWContractEventType;
 (function (SWContractEventType) {
+    SWContractEventType["CoreTeamMemberAdded"] = "CoreTeamMemberAdded";
     SWContractEventType["MemberAdded"] = "MemberAdded";
-    SWContractEventType["MemberLeft"] = "MemberLeft";
     SWContractEventType["Approval"] = "Approval";
     SWContractEventType["ApprovalForAll"] = "ApprovalForAll";
     SWContractEventType["DiscordIDConnectedToSkillWallet"] = "DiscordIDConnectedToSkillWallet";
@@ -20,7 +20,6 @@ var SWContractEventType;
     SWContractEventType["SkillWalletCommunityChanged"] = "SkillWalletCommunityChanged";
     SWContractEventType["SkillWalletCreated"] = "SkillWalletCreated";
     SWContractEventType["Transfer"] = "Transfer";
-    SWContractEventType["CoreTeamMemberAdded"] = "CoreTeamMemberAdded";
     SWContractEventType["PartnersContractAdded"] = "PartnersContractAdded";
     SWContractEventType["UrlAdded"] = "UrlAdded";
     SWContractEventType["TaskTaken"] = "TaskTaken";

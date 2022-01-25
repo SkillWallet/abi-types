@@ -4,9 +4,14 @@ exports.PartnersAgreementABI = [
     {
         inputs: [
             {
-                internalType: "address",
-                name: "_membershipFactory",
-                type: "address",
+                "internalType": "address",
+                "name": "skillWalletAddr",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_membershipFactory",
+                "type": "address"
             },
             {
                 internalType: "address",
@@ -51,25 +56,10 @@ exports.PartnersAgreementABI = [
                         type: "address",
                     },
                     {
-                        internalType: "uint256",
-                        name: "interactionsCount",
-                        type: "uint256",
-                    },
-                    {
-                        internalType: "uint256",
-                        name: "coreTeamMembersCount",
-                        type: "uint256",
-                    },
-                    {
-                        internalType: "address[]",
-                        name: "whitelistedTeamMembers",
-                        type: "address[]",
-                    },
-                    {
-                        internalType: "address",
-                        name: "interactionsQueryServer",
-                        type: "address",
-                    },
+                        "internalType": "uint256",
+                        "name": "interactionsCount",
+                        "type": "uint256"
+                    }
                 ],
                 internalType: "struct Types.PartnersAgreementData",
                 name: "pa",
@@ -83,24 +73,11 @@ exports.PartnersAgreementABI = [
         anonymous: false,
         inputs: [
             {
-                indexed: false,
-                internalType: "address",
-                name: "_member",
-                type: "address",
-            },
-        ],
-        name: "CoreTeamMemberAdded",
-        type: "event",
-    },
-    {
-        anonymous: false,
-        inputs: [
-            {
-                indexed: false,
-                internalType: "address",
-                name: "_contract",
-                type: "address",
-            },
+                "indexed": false,
+                "internalType": "address",
+                "name": "_contract",
+                "type": "address"
+            }
         ],
         name: "PartnersContractAdded",
         type: "event",
@@ -154,23 +131,10 @@ exports.PartnersAgreementABI = [
     {
         inputs: [
             {
-                internalType: "address",
-                name: "member",
-                type: "address",
-            },
-        ],
-        name: "addNewCoreTeamMembers",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "string",
-                name: "_url",
-                type: "string",
-            },
+                "internalType": "string",
+                "name": "_url",
+                "type": "string"
+            }
         ],
         name: "addURL",
         outputs: [],
@@ -191,20 +155,7 @@ exports.PartnersAgreementABI = [
         type: "function",
     },
     {
-        inputs: [],
-        name: "coreTeamMembersCount",
-        outputs: [
-            {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
+        "inputs": [
             {
                 internalType: "uint256",
                 name: "_type",
@@ -253,9 +204,22 @@ exports.PartnersAgreementABI = [
         type: "function",
     },
     {
-        inputs: [],
-        name: "getAgreementData",
-        outputs: [
+        "inputs": [],
+        "name": "getActivitiesAddress",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getAgreementData",
+        "outputs": [
             {
                 components: [
                     {
@@ -294,25 +258,10 @@ exports.PartnersAgreementABI = [
                         type: "address",
                     },
                     {
-                        internalType: "uint256",
-                        name: "interactionsCount",
-                        type: "uint256",
-                    },
-                    {
-                        internalType: "uint256",
-                        name: "coreTeamMembersCount",
-                        type: "uint256",
-                    },
-                    {
-                        internalType: "address[]",
-                        name: "whitelistedTeamMembers",
-                        type: "address[]",
-                    },
-                    {
-                        internalType: "address",
-                        name: "interactionsQueryServer",
-                        type: "address",
-                    },
+                        "internalType": "uint256",
+                        "name": "interactionsCount",
+                        "type": "uint256"
+                    }
                 ],
                 internalType: "struct Types.PartnersAgreementData",
                 name: "",
@@ -336,22 +285,9 @@ exports.PartnersAgreementABI = [
         type: "function",
     },
     {
-        inputs: [],
-        name: "getCoreTeamMembers",
-        outputs: [
-            {
-                internalType: "address[]",
-                name: "",
-                type: "address[]",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [],
-        name: "getImportedAddresses",
-        outputs: [
+        "inputs": [],
+        "name": "getImportedAddresses",
+        "outputs": [
             {
                 internalType: "address[]",
                 name: "",
@@ -394,41 +330,35 @@ exports.PartnersAgreementABI = [
         type: "function",
     },
     {
-        inputs: [],
-        name: "getURLs",
-        outputs: [
+        "inputs": [],
+        "name": "getSkillWalletAddress",
+        "outputs": [
             {
-                internalType: "string[]",
-                name: "",
-                type: "string[]",
-            },
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
         ],
         stateMutability: "view",
         type: "function",
     },
     {
-        inputs: [],
-        name: "isActive",
-        outputs: [
+        "inputs": [],
+        "name": "getURLs",
+        "outputs": [
             {
-                internalType: "bool",
-                name: "",
-                type: "bool",
-            },
+                "internalType": "string[]",
+                "name": "",
+                "type": "string[]"
+            }
         ],
         stateMutability: "view",
         type: "function",
     },
     {
-        inputs: [
-            {
-                internalType: "address",
-                name: "",
-                type: "address",
-            },
-        ],
-        name: "isCoreTeamMember",
-        outputs: [
+        "inputs": [],
+        "name": "isActive",
+        "outputs": [
             {
                 internalType: "bool",
                 name: "",
@@ -628,8 +558,8 @@ exports.PartnersAgreementABI = [
                 type: "uint256",
             },
         ],
-        stateMutability: "view",
-        type: "function",
-    },
+        "stateMutability": "view",
+        "type": "function"
+    }
 ];
 //# sourceMappingURL=PartnersAgreement.abi.js.map
