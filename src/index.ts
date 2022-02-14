@@ -13,4 +13,5 @@ export {
   SkillWalletAbi,
   PartnersAgreementABI,
   PartnersRegistryABI,
+  CommunityRegistryAbi
 } from "./abis/index";

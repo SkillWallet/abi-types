@@ -22,7 +22,6 @@ var SWContractEventType;
     SWContractEventType["Transfer"] = "Transfer";
     SWContractEventType["PartnersContractAdded"] = "PartnersContractAdded";
     SWContractEventType["UrlAdded"] = "UrlAdded";
-    SWContractEventType["TaskTaken"] = "TaskTaken";
     SWContractEventType["PartnersAgreementCreated"] = "PartnersAgreementCreated";
 })(SWContractEventType = exports.SWContractEventType || (exports.SWContractEventType = {}));
 //# sourceMappingURL=sw-contract-functions.js.map

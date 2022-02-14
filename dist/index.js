@@ -7,4 +7,5 @@ exports.DitoCommunityAbi = index_1.DitoCommunityAbi;
 exports.SkillWalletAbi = index_1.SkillWalletAbi;
 exports.PartnersAgreementABI = index_1.PartnersAgreementABI;
 exports.PartnersRegistryABI = index_1.PartnersRegistryABI;
+exports.CommunityRegistryAbi = index_1.CommunityRegistryAbi;
 //# sourceMappingURL=index.js.map
