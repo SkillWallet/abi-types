@@ -1,7 +1,7 @@
 {
   "name": "@skill-wallet/sw-abi-types",
-  "version": "0.0.17",
-  "description": "SkillWallet/DitoCommunity contract functions",
+  "version": "0.0.18",
+  "description": "Skillwallet/DitoCommunity contract functions",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
