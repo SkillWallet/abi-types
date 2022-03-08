@@ -9,6 +9,52 @@ export declare type SWEvent = {
     args: any;
 }[];
 export interface SWContractFunctions {
+    approve: (to: string, tokenId: number) => Promise<{
+        wait: () => Promise<SWContractEvents>;
+    }>;
+    balanceOf: (owner: string) => Promise<number>;
+    baseURI: () => Promise<string>;
+    completeGig: (_gigId: number) => Promise<{
+        wait: () => Promise<SWContractEvents>;
+    }>;
+    createGig: (_ditoCredits: number, _metadataUrl: string) => Promise<{
+        wait: () => Promise<SWContractEvents>;
+    }>;
+    getApproved: (tokenId: number) => Promise<string>;
+    gigs: () => Promise<{
+        creator: string;
+        taker: string;
+        ditoCredits: number;
+        status: string;
+    }>;
+    gigsCount: () => Promise<number>;
+    isApprovedForAll: (owner: string, operator: string) => Promise<boolean>;
+    name: () => Promise<string>;
+    ownerOf: (tokenId: number) => Promise<string>;
+    safeTransferFrom: (from: string, to: string, tokenId: number, _data: string) => Promise<{
+        wait: () => Promise<SWContractEvents>;
+    }>;
+    setApprovalForAll: (operator: string, approved: boolean) => Promise<{
+        wait: () => Promise<SWContractEvents>;
+    }>;
+    setCommunityAddress: (_newCommunityAddress: string) => Promise<{
+        wait: () => Promise<SWContractEvents>;
+    }>;
+    submitGig: (_gigId: number) => Promise<{
+        wait: () => Promise<SWContractEvents>;
+    }>;
+    supportsInterface: (interfaceId: string) => Promise<boolean>;
+    symbol: () => Promise<string>;
+    takeGig: (_gigId: number) => Promise<{
+        wait: () => Promise<SWContractEvents>;
+    }>;
+    tokenByIndex: (index: number) => Promise<number>;
+    tokenOfOwnerByIndex: (owner: string, index: number) => Promise<number>;
+    tokenURI: (tokenId: number) => Promise<string>;
+    totalSupply: () => Promise<number>;
+    transferFrom: (from: string, to: string, tokenId: number) => Promise<{
+        wait: () => Promise<SWContractEvents>;
+    }>;
     addNewCoreTeamMembers: (member: string) => Promise<{
         wait: () => Promise<SWContractEvents>;
     }>;
@@ -17,12 +63,12 @@ export interface SWContractFunctions {
     getMemberAddresses: () => Promise<string[]>;
     getMembers: () => Promise<number[]>;
     getSkillWalletAddress: () => Promise<string>;
+    getTemplate: () => Promise<number>;
     isCoreTeamMember: (member: string) => Promise<boolean>;
     isMember: (member: string) => Promise<boolean>;
     joinNewMember: (uri: string, role: number) => Promise<{
         wait: () => Promise<SWContractEvents>;
     }>;
-    owner: () => Promise<string>;
     setMetadataUri: (uri: string) => Promise<{
         wait: () => Promise<SWContractEvents>;
     }>;
@@ -38,11 +84,6 @@ export interface SWContractFunctions {
     addPubKeyToSkillWallet: (skillWalletId: number, pubKey: string) => Promise<{
         wait: () => Promise<SWContractEvents>;
     }>;
-    approve: (to: string, tokenId: number) => Promise<{
-        wait: () => Promise<SWContractEvents>;
-    }>;
-    balanceOf: (owner: string) => Promise<number>;
-    baseURI: () => Promise<string>;
     claim: () => Promise<{
         wait: () => Promise<SWContractEvents>;
     }>;
@@ -52,7 +93,6 @@ export interface SWContractFunctions {
     getActiveCommunity: (skillWalletId: number) => Promise<{
         community: string;
     }>;
-    getApproved: (tokenId: number) => Promise<string>;
     getClaimableSkillWalletId: (skillWalletOwner: string) => Promise<number>;
     getCommunityHistory: (skillWalletId: number) => Promise<{
         communities: string[];
@@ -65,7 +105,6 @@ export interface SWContractFunctions {
     initialize: (_skillWalletAddress: string, _interactionNFTFactory: string) => Promise<{
         wait: () => Promise<SWContractEvents>;
     }>;
-    isApprovedForAll: (owner: string, operator: string) => Promise<boolean>;
     isRequestIdValid: (requestId: string) => Promise<boolean>;
     isSkillWalletActivated: (skillWalletId: number) => Promise<{
         status: boolean;
@@ -76,31 +115,15 @@ export interface SWContractFunctions {
     isSkillWalletRegistered: (skillWalletOwner: string) => Promise<{
         status: boolean;
     }>;
-    name: () => Promise<string>;
     onERC721Received: () => Promise<string>;
     osmAddress: () => Promise<string>;
-    ownerOf: (tokenId: number) => Promise<string>;
+    owner: () => Promise<string>;
     renounceOwnership: () => Promise<{
-        wait: () => Promise<SWContractEvents>;
-    }>;
-    safeTransferFrom: (from: string, to: string, tokenId: number, _data: string) => Promise<{
-        wait: () => Promise<SWContractEvents>;
-    }>;
-    setApprovalForAll: (operator: string, approved: boolean) => Promise<{
         wait: () => Promise<SWContractEvents>;
     }>;
     skillWalletClaimers: () => Promise<number>;
     skillWalletToDiscordID: () => Promise<string>;
     skillWalletToPubKey: () => Promise<string>;
-    supportsInterface: (interfaceId: string) => Promise<boolean>;
-    symbol: () => Promise<string>;
-    tokenByIndex: (index: number) => Promise<number>;
-    tokenOfOwnerByIndex: (owner: string, index: number) => Promise<number>;
-    tokenURI: (tokenId: number) => Promise<string>;
-    totalSupply: () => Promise<number>;
-    transferFrom: (from: string, to: string, tokenId: number) => Promise<{
-        wait: () => Promise<SWContractEvents>;
-    }>;
     transferOwnership: (newOwner: string) => Promise<{
         wait: () => Promise<SWContractEvents>;
     }>;
@@ -162,6 +185,14 @@ export interface SWContractEvents {
     events: SWEvent;
 }
 export declare enum SWContractEventType {
+    Approval = "Approval",
+    ApprovalForAll = "ApprovalForAll",
+    GigCompleted = "GigCompleted",
+    GigCreated = "GigCreated",
+    GigSubmitted = "GigSubmitted",
+    GigTaken = "GigTaken",
+    GigValidated = "GigValidated",
+    Transfer = "Transfer",
     CoreTeamMemberAdded = "CoreTeamMemberAdded",
     MemberAdded = "MemberAdded",
     Approval = "Approval",

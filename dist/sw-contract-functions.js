@@ -8,6 +8,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var SWContractEventType;
 (function (SWContractEventType) {
+    SWContractEventType["Approval"] = "Approval";
+    SWContractEventType["ApprovalForAll"] = "ApprovalForAll";
+    SWContractEventType["GigCompleted"] = "GigCompleted";
+    SWContractEventType["GigCreated"] = "GigCreated";
+    SWContractEventType["GigSubmitted"] = "GigSubmitted";
+    SWContractEventType["GigTaken"] = "GigTaken";
+    SWContractEventType["GigValidated"] = "GigValidated";
+    SWContractEventType["Transfer"] = "Transfer";
     SWContractEventType["CoreTeamMemberAdded"] = "CoreTeamMemberAdded";
     SWContractEventType["MemberAdded"] = "MemberAdded";
     SWContractEventType["Approval"] = "Approval";
