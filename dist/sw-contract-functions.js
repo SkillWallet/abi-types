@@ -31,5 +31,6 @@ var SWContractEventType;
     SWContractEventType["PartnersContractAdded"] = "PartnersContractAdded";
     SWContractEventType["UrlAdded"] = "UrlAdded";
     SWContractEventType["PartnersAgreementCreated"] = "PartnersAgreementCreated";
+    SWContractEventType["CommunityCreated"] = "CommunityCreated";
 })(SWContractEventType = exports.SWContractEventType || (exports.SWContractEventType = {}));
 //# sourceMappingURL=sw-contract-functions.js.map

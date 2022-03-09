@@ -118,8 +118,7 @@ export interface SWContractFunctions {
   getSkillWalletIdByOwner: (skillWalletOwner: string) => Promise<number>;
   getTotalSkillWalletsRegistered: () => Promise<number>;
   initialize: (
-    _skillWalletAddress: string,
-    _interactionNFTFactory: string
+    _skillWalletAddress: string
   ) => Promise<{ wait: () => Promise<SWContractEvents> }>;
   isRequestIdValid: (requestId: string) => Promise<boolean>;
   isSkillWalletActivated: (
@@ -194,6 +193,14 @@ export interface SWContractFunctions {
     _version: number
   ) => Promise<{ wait: () => Promise<SWContractEvents> }>;
   skillWalletAddress: () => Promise<string>;
+  createCommunity: (
+    url: string,
+    template: number,
+    totalMembersAllowed: number,
+    coreTeamMembersCount: number,
+    isPermissioned: boolean,
+    migrateFrom: string
+  ) => Promise<{ wait: () => Promise<SWContractEvents> }>;
 }
 export interface SWContractEvents {
   events: SWEvent;
@@ -220,4 +227,5 @@ export enum SWContractEventType {
   PartnersContractAdded = "PartnersContractAdded",
   UrlAdded = "UrlAdded",
   PartnersAgreementCreated = "PartnersAgreementCreated",
+  CommunityCreated = "CommunityCreated",
 }

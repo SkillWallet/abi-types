@@ -5,6 +5,7 @@ import {
   SkillWalletAbi,
   PartnersAgreementABI,
   PartnersRegistryABI,
+  CommunityRegistryAbi,
 } from "./abis/index";
 import { SWTypeFactory } from "./type-factory";
 
@@ -18,6 +19,7 @@ async function generate() {
         ...SkillWalletAbi,
         ...PartnersAgreementABI,
         ...PartnersRegistryABI,
+        ...CommunityRegistryAbi,
       ]),
       "SWContractFunctions",
       {

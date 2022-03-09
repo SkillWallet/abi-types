@@ -21,6 +21,7 @@ function generate() {
             ...index_1.SkillWalletAbi,
             ...index_1.PartnersAgreementABI,
             ...index_1.PartnersRegistryABI,
+            ...index_1.CommunityRegistryAbi,
         ]), "SWContractFunctions", {
             enableConstEnums: false,
         }));
