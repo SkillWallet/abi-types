@@ -207,6 +207,8 @@ export interface SWContractEvents {
 }
 
 export enum SWContractEventType {
+  Approval = "Approval",
+  ApprovalForAll = "ApprovalForAll",
   GigCompleted = "GigCompleted",
   GigCreated = "GigCreated",
   GigSubmitted = "GigSubmitted",
@@ -214,8 +216,6 @@ export enum SWContractEventType {
   GigValidated = "GigValidated",
   CoreTeamMemberAdded = "CoreTeamMemberAdded",
   MemberAdded = "MemberAdded",
-  Approval = "Approval",
-  ApprovalForAll = "ApprovalForAll",
   DiscordIDConnectedToSkillWallet = "DiscordIDConnectedToSkillWallet",
   OwnershipTransferred = "OwnershipTransferred",
   PubKeyAddedToSkillWallet = "PubKeyAddedToSkillWallet",
