@@ -61,14 +61,9 @@ exports.PartnersRegistryABI = [
     {
         "inputs": [
             {
-                "internalType": "string",
-                "name": "metadata",
-                "type": "string"
-            },
-            {
-                "internalType": "uint256",
-                "name": "template",
-                "type": "uint256"
+                "internalType": "address",
+                "name": "communityAddress",
+                "type": "address"
             },
             {
                 "internalType": "uint256",
@@ -77,33 +72,31 @@ exports.PartnersRegistryABI = [
             },
             {
                 "internalType": "uint256",
-                "name": "numberOfActions",
+                "name": "commitmentLevel",
                 "type": "uint256"
             },
             {
                 "internalType": "address",
                 "name": "partnersContractAddress",
                 "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "membersAllowed",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "coreTeamMembers",
-                "type": "uint256"
-            },
-            {
-                "internalType": "bool",
-                "name": "isPermissioned",
-                "type": "bool"
             }
         ],
         "name": "create",
         "outputs": [],
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "deployer",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -128,18 +121,26 @@ exports.PartnersRegistryABI = [
             },
             {
                 "internalType": "address",
-                "name": "_partnersAgreementFactoryAddress",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "_membershipFactory",
+                "name": "_interactionNFTFactory",
                 "type": "address"
             }
         ],
         "name": "initialize",
         "outputs": [],
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "interactionNFTFactory",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -166,6 +167,19 @@ exports.PartnersRegistryABI = [
         "name": "setVersion",
         "outputs": [],
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "skillWalletAddress",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function"
     },
     {

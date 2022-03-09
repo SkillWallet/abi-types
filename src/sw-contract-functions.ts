@@ -99,14 +99,10 @@ export interface SWContractFunctions {
   ) => Promise<{ wait: () => Promise<SWContractEvents> }>;
   claim: () => Promise<{ wait: () => Promise<SWContractEvents> }>;
   create: (
-    metadata: string,
-    template: number,
+    communityAddress: string,
     rolesCount: number,
-    numberOfActions: number,
-    partnersContractAddress: string,
-    membersAllowed: number,
-    coreTeamMembers: number,
-    isPermissioned: boolean
+    commitmentLevel: number,
+    partnersContractAddress: string
   ) => Promise<{ wait: () => Promise<SWContractEvents> }>;
   getActiveCommunity: (skillWalletId: number) => Promise<{ community: string }>;
   getClaimableSkillWalletId: (skillWalletOwner: string) => Promise<number>;
@@ -123,8 +119,7 @@ export interface SWContractFunctions {
   getTotalSkillWalletsRegistered: () => Promise<number>;
   initialize: (
     _skillWalletAddress: string,
-    _partnersAgreementFactoryAddress: string,
-    _membershipFactory: string
+    _interactionNFTFactory: string
   ) => Promise<{ wait: () => Promise<SWContractEvents> }>;
   isRequestIdValid: (requestId: string) => Promise<boolean>;
   isSkillWalletActivated: (
@@ -146,20 +141,19 @@ export interface SWContractFunctions {
   transferOwnership: (
     newOwner: string
   ) => Promise<{ wait: () => Promise<SWContractEvents> }>;
-  activatePA: () => Promise<{ wait: () => Promise<SWContractEvents> }>;
   activities: () => Promise<string>;
   addNewContractAddressToAgreement: (
     contractAddress: string
   ) => Promise<{ wait: () => Promise<SWContractEvents> }>;
   addURL: (_url: string) => Promise<{ wait: () => Promise<SWContractEvents> }>;
+  commitmentLevel: () => Promise<number>;
   communityAddress: () => Promise<string>;
   createActivity: (
     _type: number,
     _uri: string
   ) => Promise<{ wait: () => Promise<SWContractEvents> }>;
   deployActivities: (
-    _factory: string,
-    _bot: string
+    _factory: string
   ) => Promise<{ wait: () => Promise<SWContractEvents> }>;
   finilizeTask: (
     _activityId: number
@@ -168,12 +162,13 @@ export interface SWContractFunctions {
   getAgreementData: () => Promise<undefined>;
   getAllMembers: () => Promise<string[]>;
   getImportedAddresses: () => Promise<string[]>;
-  getInteractionNFT: (user: string) => Promise<number>;
-  getInteractionNFTContractAddress: () => Promise<string>;
   getURLs: () => Promise<string[]>;
+  interactionNFT: () => Promise<string>;
+  interactionNFTFactory: () => Promise<string>;
   isActive: () => Promise<boolean>;
   isURLListed: (_url: string) => Promise<boolean>;
-  membershipAddress: () => Promise<string>;
+  onERC1155BatchReceived: () => Promise<string>;
+  onERC1155Received: () => Promise<string>;
   partnersContracts: () => Promise<string>;
   removeURL: (
     _url: string
@@ -190,6 +185,7 @@ export interface SWContractFunctions {
   version: () => Promise<number>;
   agreementIds: () => Promise<number>;
   agreements: () => Promise<string>;
+  deployer: () => Promise<string>;
   getPartnerAgreementAddresses: () => Promise<string[]>;
   migrate: (
     _agreement: string
@@ -197,21 +193,23 @@ export interface SWContractFunctions {
   setVersion: (
     _version: number
   ) => Promise<{ wait: () => Promise<SWContractEvents> }>;
+  skillWalletAddress: () => Promise<string>;
 }
 export interface SWContractEvents {
   events: SWEvent;
 }
 
 export enum SWContractEventType {
+  Approval = "Approval",
+  ApprovalForAll = "ApprovalForAll",
   GigCompleted = "GigCompleted",
   GigCreated = "GigCreated",
   GigSubmitted = "GigSubmitted",
   GigTaken = "GigTaken",
   GigValidated = "GigValidated",
+  Transfer = "Transfer",
   CoreTeamMemberAdded = "CoreTeamMemberAdded",
   MemberAdded = "MemberAdded",
-  Approval = "Approval",
-  ApprovalForAll = "ApprovalForAll",
   DiscordIDConnectedToSkillWallet = "DiscordIDConnectedToSkillWallet",
   OwnershipTransferred = "OwnershipTransferred",
   PubKeyAddedToSkillWallet = "PubKeyAddedToSkillWallet",
@@ -219,9 +217,7 @@ export enum SWContractEventType {
   SkillWalletClaimed = "SkillWalletClaimed",
   SkillWalletCommunityChanged = "SkillWalletCommunityChanged",
   SkillWalletCreated = "SkillWalletCreated",
-  Transfer = "Transfer",
   PartnersContractAdded = "PartnersContractAdded",
   UrlAdded = "UrlAdded",
-  TaskTaken = "TaskTaken",
   PartnersAgreementCreated = "PartnersAgreementCreated",
 }
