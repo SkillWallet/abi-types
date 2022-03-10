@@ -7,6 +7,7 @@ const types = {
     bytes4: "string",
     uint256: "number",
     uint16: "number",
+    uint8: "number",
     string: "string",
     "address[]": "string[]",
     "string[]": "string[]",
@@ -29,6 +30,7 @@ const getReturnTypes = (config, stateMutability) => {
     */
     if (config.length === 1 && !config[0].name) {
         const [{ type }] = config;
+        console.log(config, "console.log(config[0].name);");
         return `${types[type]}`;
     }
     /*

@@ -8,6 +8,7 @@ const types: any = {
   bytes4: "string",
   uint256: "number",
   uint16: "number",
+  uint8: "number",
   string: "string",
   "address[]": "string[]",
   "string[]": "string[]",
@@ -35,6 +36,9 @@ const getReturnTypes = (
   */
   if (config.length === 1 && !config[0].name) {
     const [{ type }] = config;
+
+    console.log(config, "console.log(config[0].name);");
+
     return `${types[type as string]}`;
   }
 
@@ -43,6 +47,7 @@ const getReturnTypes = (
     therefore they return wait() alongside anything else
   */
   const args = generateArguments(config);
+
   if (stateMutability !== "view") {
     if (config.length > 1) {
       return `{${args}, wait: () => Promise<SWContractEvents>}`;

@@ -49,7 +49,7 @@ export interface SWContractFunctions {
         wait: () => Promise<SWContractEvents>;
     }>;
     skillWalletIds: () => Promise<number>;
-    status: () => Promise<undefined>;
+    status: () => Promise<number>;
     tokenId: () => Promise<number>;
     totalMembersAllowed: () => Promise<number>;
     transferCredits: (to: string, amount: number) => Promise<{
@@ -88,7 +88,7 @@ export interface SWContractFunctions {
     }>;
     getOSMAddress: () => Promise<string>;
     getPubKeyBySkillWalletId: (skillWalletId: number) => Promise<string>;
-    getRole: (skillWalletHolderAddress: string) => Promise<undefined>;
+    getRole: (skillWalletHolderAddress: string) => Promise<number>;
     getSkillWalletIdByOwner: (skillWalletOwner: string) => Promise<number>;
     getTotalSkillWalletsRegistered: () => Promise<number>;
     isApprovedForAll: (owner: string, operator: string) => Promise<boolean>;
@@ -186,7 +186,7 @@ export interface SWContractFunctions {
         creator: string;
         taker: string;
         ditoCredits: number;
-        status: string;
+        status: number;
     }>;
     gigsCount: () => Promise<number>;
     name: () => Promise<string>;
