@@ -17,11 +17,12 @@ function generate() {
     return __awaiter(this, void 0, void 0, function* () {
         // writeFileSync('sw-dito-contract-functions.d.ts', await compile(SwTypeFactory(communityAbi, 'SWDito'), 'SWDitoContractFunctions'));
         fs_1.writeFileSync(`src/sw-contract-functions.ts`, yield json_schema_to_typescript_1.compile(type_factory_1.SWTypeFactory([
-            ...index_1.DitoCommunityAbi,
-            ...index_1.SkillWalletAbi,
+            ...index_1.DITOCommunityABI,
+            ...index_1.SkillWalletABI,
             ...index_1.PartnersAgreementABI,
             ...index_1.PartnersRegistryABI,
-            ...index_1.CommunityRegistryAbi,
+            ...index_1.CommunityRegistryABI,
+            ...index_1.GigsABI,
         ]), "SWContractFunctions", {
             enableConstEnums: false,
         }));

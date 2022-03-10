@@ -4,8 +4,9 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./CommunityRegistry.abi"));
-__export(require("./ICommunity.abi"));
+__export(require("./DITOCommunity.abi"));
 __export(require("./PartnersAgreement.abi"));
 __export(require("./PartnersRegistry.abi"));
 __export(require("./SkillWallet.abi"));
+__export(require("./Gigs.abi"));
 //# sourceMappingURL=index.js.map

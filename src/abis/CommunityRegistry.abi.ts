@@ -1,6 +1,6 @@
 import { JsonFragment } from "../abis.model";
 
-export const CommunityRegistryAbi: JsonFragment[] = [
+export const CommunityRegistryABI: JsonFragment[] = [
   {
     anonymous: false,
     inputs: [

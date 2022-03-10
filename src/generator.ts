@@ -1,11 +1,12 @@
 import { writeFileSync } from "fs";
 import { compile } from "json-schema-to-typescript";
 import {
-  DitoCommunityAbi,
-  SkillWalletAbi,
+  DITOCommunityABI,
+  SkillWalletABI,
   PartnersAgreementABI,
   PartnersRegistryABI,
-  CommunityRegistryAbi,
+  CommunityRegistryABI,
+  GigsABI,
 } from "./abis/index";
 import { SWTypeFactory } from "./type-factory";
 
@@ -15,11 +16,12 @@ async function generate() {
     `src/sw-contract-functions.ts`,
     await compile(
       SWTypeFactory([
-        ...DitoCommunityAbi,
-        ...SkillWalletAbi,
+        ...DITOCommunityABI,
+        ...SkillWalletABI,
         ...PartnersAgreementABI,
         ...PartnersRegistryABI,
-        ...CommunityRegistryAbi,
+        ...CommunityRegistryABI,
+        ...GigsABI,
       ]),
       "SWContractFunctions",
       {

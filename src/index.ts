@@ -9,9 +9,10 @@ export {
 export { JsonFragment, JsonFragmentType } from "./abis.model";
 
 export {
-  DitoCommunityAbi,
-  SkillWalletAbi,
+  DITOCommunityABI,
+  SkillWalletABI,
   PartnersAgreementABI,
   PartnersRegistryABI,
-  CommunityRegistryAbi
+  CommunityRegistryABI,
+  GigsABI,
 } from "./abis/index";

@@ -8,20 +8,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var SWContractEventType;
 (function (SWContractEventType) {
-    SWContractEventType["Approval"] = "Approval";
-    SWContractEventType["ApprovalForAll"] = "ApprovalForAll";
-    SWContractEventType["GigCompleted"] = "GigCompleted";
-    SWContractEventType["GigCreated"] = "GigCreated";
-    SWContractEventType["GigSubmitted"] = "GigSubmitted";
-    SWContractEventType["GigTaken"] = "GigTaken";
-    SWContractEventType["GigValidated"] = "GigValidated";
-    SWContractEventType["Transfer"] = "Transfer";
-    SWContractEventType["CoreTeamMemberAdded"] = "CoreTeamMemberAdded";
     SWContractEventType["MemberAdded"] = "MemberAdded";
+    SWContractEventType["MemberLeft"] = "MemberLeft";
     SWContractEventType["Approval"] = "Approval";
     SWContractEventType["ApprovalForAll"] = "ApprovalForAll";
     SWContractEventType["DiscordIDConnectedToSkillWallet"] = "DiscordIDConnectedToSkillWallet";
-    SWContractEventType["OwnershipTransferred"] = "OwnershipTransferred";
     SWContractEventType["PubKeyAddedToSkillWallet"] = "PubKeyAddedToSkillWallet";
     SWContractEventType["SkillWalletActivated"] = "SkillWalletActivated";
     SWContractEventType["SkillWalletClaimed"] = "SkillWalletClaimed";
@@ -32,5 +23,13 @@ var SWContractEventType;
     SWContractEventType["UrlAdded"] = "UrlAdded";
     SWContractEventType["PartnersAgreementCreated"] = "PartnersAgreementCreated";
     SWContractEventType["CommunityCreated"] = "CommunityCreated";
+    SWContractEventType["Approval"] = "Approval";
+    SWContractEventType["ApprovalForAll"] = "ApprovalForAll";
+    SWContractEventType["GigCompleted"] = "GigCompleted";
+    SWContractEventType["GigCreated"] = "GigCreated";
+    SWContractEventType["GigSubmitted"] = "GigSubmitted";
+    SWContractEventType["GigTaken"] = "GigTaken";
+    SWContractEventType["GigValidated"] = "GigValidated";
+    SWContractEventType["Transfer"] = "Transfer";
 })(SWContractEventType = exports.SWContractEventType || (exports.SWContractEventType = {}));
 //# sourceMappingURL=sw-contract-functions.js.map

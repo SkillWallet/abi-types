@@ -1,2 +1,2 @@
 import { JsonFragment } from "../abis.model";
-export declare const SkillWalletAbi: JsonFragment[];
+export declare const SkillWalletABI: JsonFragment[];
