@@ -33,8 +33,7 @@ export interface SWContractFunctions {
   isMember: (member: string) => Promise<boolean>;
   joinNewMember: (
     uri: string,
-    role: number,
-    credits: number
+    role: number
   ) => Promise<{ wait: () => Promise<SWContractEvents> }>;
   markAsMigrated: (
     _migratedTo: string

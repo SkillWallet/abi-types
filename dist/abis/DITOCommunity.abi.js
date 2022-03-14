@@ -335,11 +335,6 @@ exports.DITOCommunityABI = [
                 name: "role",
                 type: "uint256",
             },
-            {
-                internalType: "uint256",
-                name: "credits",
-                type: "uint256",
-            },
         ],
         name: "joinNewMember",
         outputs: [],

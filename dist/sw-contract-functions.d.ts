@@ -28,7 +28,7 @@ export interface SWContractFunctions {
     getTreasuryBalance: () => Promise<number>;
     gigsAddr: () => Promise<string>;
     isMember: (member: string) => Promise<boolean>;
-    joinNewMember: (uri: string, role: number, credits: number) => Promise<{
+    joinNewMember: (uri: string, role: number) => Promise<{
         wait: () => Promise<SWContractEvents>;
     }>;
     markAsMigrated: (_migratedTo: string) => Promise<{
