@@ -204,6 +204,15 @@ export interface SWContractFunctions {
     tokenOfOwnerByIndex: (owner: string, index: number) => Promise<number>;
     tokenURI: (tokenId: number) => Promise<string>;
     totalSupply: () => Promise<number>;
+    checkpoints: () => Promise<string>;
+    closeCompetition: (competitionAddress: number) => Promise<{
+        wait: () => Promise<SWContractEvents>;
+    }>;
+    community: () => Promise<string>;
+    createCompetition: (role: number, skill1: number, skill2: number, skill3: number, metadata: string, checkpointsAmount: number) => Promise<{
+        wait: () => Promise<SWContractEvents>;
+    }>;
+    getCompetitions: () => Promise<string[]>;
 }
 export interface SWContractEvents {
     events: SWEvent;
@@ -231,5 +240,6 @@ export declare enum SWContractEventType {
     GigSubmitted = "GigSubmitted",
     GigTaken = "GigTaken",
     GigValidated = "GigValidated",
-    Transfer = "Transfer"
+    Transfer = "Transfer",
+    CompetitionCreated = "CompetitionCreated"
 }

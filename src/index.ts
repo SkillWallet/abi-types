@@ -15,4 +15,5 @@ export {
   PartnersRegistryABI,
   CommunityRegistryABI,
   GigsABI,
+  OlympicsABI,
 } from "./abis/index";

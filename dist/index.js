@@ -9,4 +9,5 @@ exports.PartnersAgreementABI = index_1.PartnersAgreementABI;
 exports.PartnersRegistryABI = index_1.PartnersRegistryABI;
 exports.CommunityRegistryABI = index_1.CommunityRegistryABI;
 exports.GigsABI = index_1.GigsABI;
+exports.OlympicsABI = index_1.OlympicsABI;
 //# sourceMappingURL=index.js.map

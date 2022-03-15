@@ -15,7 +15,6 @@ const index_1 = require("./abis/index");
 const type_factory_1 = require("./type-factory");
 function generate() {
     return __awaiter(this, void 0, void 0, function* () {
-        // writeFileSync('sw-dito-contract-functions.d.ts', await compile(SwTypeFactory(communityAbi, 'SWDito'), 'SWDitoContractFunctions'));
         fs_1.writeFileSync(`src/sw-contract-functions.ts`, yield json_schema_to_typescript_1.compile(type_factory_1.SWTypeFactory([
             ...index_1.DITOCommunityABI,
             ...index_1.SkillWalletABI,
@@ -23,6 +22,7 @@ function generate() {
             ...index_1.PartnersRegistryABI,
             ...index_1.CommunityRegistryABI,
             ...index_1.GigsABI,
+            ...index_1.OlympicsABI,
         ]), "SWContractFunctions", {
             enableConstEnums: false,
         }));

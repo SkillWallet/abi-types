@@ -31,5 +31,6 @@ var SWContractEventType;
     SWContractEventType["GigTaken"] = "GigTaken";
     SWContractEventType["GigValidated"] = "GigValidated";
     SWContractEventType["Transfer"] = "Transfer";
+    SWContractEventType["CompetitionCreated"] = "CompetitionCreated";
 })(SWContractEventType = exports.SWContractEventType || (exports.SWContractEventType = {}));
 //# sourceMappingURL=sw-contract-functions.js.map
