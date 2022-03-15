@@ -10,15 +10,8 @@ var SWContractEventType;
 (function (SWContractEventType) {
     SWContractEventType["MemberAdded"] = "MemberAdded";
     SWContractEventType["MemberLeft"] = "MemberLeft";
-    SWContractEventType["Approval"] = "Approval";
-    SWContractEventType["ApprovalForAll"] = "ApprovalForAll";
-    SWContractEventType["DiscordIDConnectedToSkillWallet"] = "DiscordIDConnectedToSkillWallet";
-    SWContractEventType["PubKeyAddedToSkillWallet"] = "PubKeyAddedToSkillWallet";
-    SWContractEventType["SkillWalletActivated"] = "SkillWalletActivated";
-    SWContractEventType["SkillWalletClaimed"] = "SkillWalletClaimed";
-    SWContractEventType["SkillWalletCommunityChanged"] = "SkillWalletCommunityChanged";
-    SWContractEventType["SkillWalletCreated"] = "SkillWalletCreated";
-    SWContractEventType["Transfer"] = "Transfer";
+    SWContractEventType["CoreTeamMemberAdded"] = "CoreTeamMemberAdded";
+    SWContractEventType["MemberAdded"] = "MemberAdded";
     SWContractEventType["PartnersContractAdded"] = "PartnersContractAdded";
     SWContractEventType["UrlAdded"] = "UrlAdded";
     SWContractEventType["PartnersAgreementCreated"] = "PartnersAgreementCreated";
