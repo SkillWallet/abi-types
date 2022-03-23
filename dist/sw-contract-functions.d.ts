@@ -197,7 +197,6 @@ export interface SWContractEvents {
     events: SWEvent;
 }
 export declare enum SWContractEventType {
-    MemberAdded = "MemberAdded",
     MemberLeft = "MemberLeft",
     CoreTeamMemberAdded = "CoreTeamMemberAdded",
     MemberAdded = "MemberAdded",

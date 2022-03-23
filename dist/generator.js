@@ -13,20 +13,72 @@ const fs_1 = require("fs");
 const json_schema_to_typescript_1 = require("json-schema-to-typescript");
 const index_1 = require("./abis/index");
 const type_factory_1 = require("./type-factory");
-function generate() {
+function generateTypes(path, abi, preffix) {
     return __awaiter(this, void 0, void 0, function* () {
-        fs_1.writeFileSync(`src/sw-contract-functions.ts`, yield json_schema_to_typescript_1.compile(type_factory_1.SWTypeFactory([
-            ...index_1.DITOCommunityABI,
-            ...index_1.SkillWalletABI,
-            ...index_1.PartnersAgreementABI,
-            ...index_1.PartnersRegistryABI,
-            ...index_1.CommunityRegistryABI,
-            ...index_1.GigsABI,
-            ...index_1.OlympicsABI,
-        ]), "SWContractFunctions", {
+        const name = `${preffix}ContractFunctions`;
+        fs_1.writeFileSync(path, yield json_schema_to_typescript_1.compile(type_factory_1.SWTypeFactory(abi, preffix), name, {
             enableConstEnums: false,
         }));
     });
 }
+exports.generateTypes = generateTypes;
+const all = [
+    {
+        path: `src/ProviderFactory/CheckpointsProvider/sw-contract-functions.ts`,
+        abi: index_1.CheckpointsABI,
+        preffix: "Checkpoints",
+    },
+    {
+        path: `src/ProviderFactory/CommunityRegistryProvider/sw-contract-functions.ts`,
+        abi: index_1.SkillWalletABI,
+        preffix: "CommunityRegistry",
+    },
+    {
+        path: `src/ProviderFactory/CompetitionsProvider/sw-contract-functions.ts`,
+        abi: index_1.CompetitionsABI,
+        preffix: "Competitions",
+    },
+    {
+        path: `src/ProviderFactory/DITOCommunityProvider/sw-contract-functions.ts`,
+        abi: index_1.DITOCommunityABI,
+        preffix: "DITOCommunity",
+    },
+    {
+        path: `src/ProviderFactory/GigsProvider/sw-contract-functions.ts`,
+        abi: index_1.GigsABI,
+        preffix: "Gigs",
+    },
+    {
+        path: `src/ProviderFactory/OlympicsProvider/sw-contract-functions.ts`,
+        abi: index_1.OlympicsABI,
+        preffix: "Olympics",
+    },
+    {
+        path: `src/ProviderFactory/PartnersAgreementProvider/sw-contract-functions.ts`,
+        abi: index_1.PartnersAgreementABI,
+        preffix: "PartnersAgreement",
+    },
+    {
+        path: `src/ProviderFactory/CommunityRegistryProvider/sw-contract-functions.ts`,
+        abi: index_1.CommunityRegistryABI,
+        preffix: "CommunityRegistry",
+    },
+    {
+        path: `src/ProviderFactory/PartnersRegistryProvider/sw-contract-functions.ts`,
+        abi: index_1.PartnersRegistryABI,
+        preffix: "PartnersRegistry",
+    },
+    {
+        path: `src/ProviderFactory/SkillWalletProvider/sw-contract-functions.ts`,
+        abi: index_1.SkillWalletABI,
+        preffix: "SkillWallet",
+    },
+];
+const generate = () => __awaiter(void 0, void 0, void 0, function* () {
+    for (let i = 0; i < all.length; i += 1) {
+        const { path, abi, preffix } = all[i];
+        yield generateTypes(path, abi, preffix);
+    }
+});
 generate();
 //# sourceMappingURL=generator.js.map

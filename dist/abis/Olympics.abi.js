@@ -9,6 +9,11 @@ exports.OlympicsABI = [
                 type: "address",
             },
             {
+                internalType: "address",
+                name: "_checkpoints",
+                type: "address",
+            },
+            {
                 internalType: "uint256",
                 name: "_version",
                 type: "uint256",
@@ -32,7 +37,7 @@ exports.OlympicsABI = [
     },
     {
         inputs: [],
-        name: "checkpoints",
+        name: "checkpointsAddress",
         outputs: [
             {
                 internalType: "address",
@@ -44,24 +49,11 @@ exports.OlympicsABI = [
         type: "function",
     },
     {
-        inputs: [
-            {
-                internalType: "uint256",
-                name: "competitionAddress",
-                type: "uint256",
-            },
-        ],
-        name: "closeCompetition",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
         inputs: [],
         name: "community",
         outputs: [
             {
-                internalType: "contract ICommunity",
+                internalType: "address",
                 name: "",
                 type: "address",
             },
@@ -98,7 +90,12 @@ exports.OlympicsABI = [
             },
             {
                 internalType: "uint256",
-                name: "checkpointsAmount",
+                name: "startTime",
+                type: "uint256",
+            },
+            {
+                internalType: "uint256",
+                name: "endTime",
                 type: "uint256",
             },
         ],

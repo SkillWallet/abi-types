@@ -8,7 +8,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var SWContractEventType;
 (function (SWContractEventType) {
-    SWContractEventType["MemberAdded"] = "MemberAdded";
     SWContractEventType["MemberLeft"] = "MemberLeft";
     SWContractEventType["CoreTeamMemberAdded"] = "CoreTeamMemberAdded";
     SWContractEventType["MemberAdded"] = "MemberAdded";

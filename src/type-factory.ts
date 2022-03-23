@@ -26,7 +26,8 @@ const generateArguments = (config: ReadonlyArray<JsonFragmentType>) => {
 
 const getReturnTypes = (
   config: ReadonlyArray<JsonFragmentType>,
-  stateMutability: string
+  stateMutability: string,
+  eventType: string
 ) => {
   /*
     if there is only 1 argument and it has no name than we assume that 
@@ -36,9 +37,6 @@ const getReturnTypes = (
   */
   if (config.length === 1 && !config[0].name) {
     const [{ type }] = config;
-
-    console.log(config, "console.log(config[0].name);");
-
     return `${types[type as string]}`;
   }
 
@@ -50,9 +48,9 @@ const getReturnTypes = (
 
   if (stateMutability !== "view") {
     if (config.length > 1) {
-      return `{${args}, wait: () => Promise<SWContractEvents>}`;
+      return `{${args}, wait: () => Promise<${eventType}>}`;
     }
-    return `{wait: () => Promise<SWContractEvents>}`;
+    return `{wait: () => Promise<${eventType}>}`;
   }
 
   if (args.length) {
@@ -62,7 +60,10 @@ const getReturnTypes = (
   return `void`;
 };
 
-const generateMainFunctions = (mainFunctions: JsonFragment[]) => {
+const generateMainFunctions = (
+  mainFunctions: JsonFragment[],
+  eventType: string
+) => {
   return mainFunctions.reduce((prev, curr) => {
     return {
       ...prev,
@@ -72,14 +73,15 @@ const generateMainFunctions = (mainFunctions: JsonFragment[]) => {
           curr.inputs as ReadonlyArray<JsonFragmentType>
         )}) => Promise<${getReturnTypes(
           curr.outputs as ReadonlyArray<JsonFragmentType>,
-          curr.stateMutability as string
+          curr.stateMutability as string,
+          eventType
         )}>`,
       },
     };
   }, {});
 };
 
-const generageEventTypes = () => {
+const generageEventTypes = (eventsType: string) => {
   return {
     events: {
       type: "array",
@@ -88,7 +90,7 @@ const generageEventTypes = () => {
         type: "object",
         properties: {
           event: {
-            $ref: `#/definitions/SWContractEventType`,
+            $ref: `#/definitions/${eventsType}`,
           },
           args: {
             tsType: "any",
@@ -101,7 +103,10 @@ const generageEventTypes = () => {
   };
 };
 
-export const SWTypeFactory = (abi: JsonFragment[]): JSONSchema4 => {
+export const SWTypeFactory = (
+  abi: JsonFragment[],
+  typeNamePreffix: string
+): JSONSchema4 => {
   const { functions, functionNames, eventNames } = abi.reduce(
     (prev, curr: JsonFragment) => {
       if (curr.type === "function") {
@@ -124,8 +129,8 @@ export const SWTypeFactory = (abi: JsonFragment[]): JSONSchema4 => {
 
   return {
     definitions: {
-      [`SWContractEventType`]: {
-        title: `SWContractEventType`,
+      [`${typeNamePreffix}ContractEventType`]: {
+        title: `${typeNamePreffix}ContractEventType`,
         enum: eventNames,
         tsEnumNames: eventNames,
         type: "string",
@@ -133,16 +138,19 @@ export const SWTypeFactory = (abi: JsonFragment[]): JSONSchema4 => {
     },
     items: [
       {
-        title: `SWContractFunctions`,
+        title: `${typeNamePreffix}ContractFunctions`,
         type: "object",
-        properties: generateMainFunctions(functions),
+        properties: generateMainFunctions(
+          functions,
+          `${typeNamePreffix}ContractEvents`
+        ),
         required: functionNames,
         additionalProperties: false,
       },
       {
-        title: `SWContractEvents`,
+        title: `${typeNamePreffix}ContractEvents`,
         type: "object",
-        properties: generageEventTypes(),
+        properties: generageEventTypes(`${typeNamePreffix}ContractEventType`),
         required: ["events"],
         additionalProperties: false,
       },

@@ -21,7 +21,7 @@ const generateArguments = (config) => {
     })
         .join(",");
 };
-const getReturnTypes = (config, stateMutability) => {
+const getReturnTypes = (config, stateMutability, eventType) => {
     /*
       if there is only 1 argument and it has no name than we assume that
       the response is of primitive type
@@ -30,7 +30,6 @@ const getReturnTypes = (config, stateMutability) => {
     */
     if (config.length === 1 && !config[0].name) {
         const [{ type }] = config;
-        console.log(config, "console.log(config[0].name);");
         return `${types[type]}`;
     }
     /*
@@ -40,24 +39,24 @@ const getReturnTypes = (config, stateMutability) => {
     const args = generateArguments(config);
     if (stateMutability !== "view") {
         if (config.length > 1) {
-            return `{${args}, wait: () => Promise<SWContractEvents>}`;
+            return `{${args}, wait: () => Promise<${eventType}>}`;
         }
-        return `{wait: () => Promise<SWContractEvents>}`;
+        return `{wait: () => Promise<${eventType}>}`;
     }
     if (args.length) {
         return `{${args}}`;
     }
     return `void`;
 };
-const generateMainFunctions = (mainFunctions) => {
+const generateMainFunctions = (mainFunctions, eventType) => {
     return mainFunctions.reduce((prev, curr) => {
         return Object.assign(Object.assign({}, prev), { [curr.name]: {
                 instanceOf: "Function",
-                tsType: `(${generateArguments(curr.inputs)}) => Promise<${getReturnTypes(curr.outputs, curr.stateMutability)}>`,
+                tsType: `(${generateArguments(curr.inputs)}) => Promise<${getReturnTypes(curr.outputs, curr.stateMutability, eventType)}>`,
             } });
     }, {});
 };
-const generageEventTypes = () => {
+const generageEventTypes = (eventsType) => {
     return {
         events: {
             type: "array",
@@ -66,7 +65,7 @@ const generageEventTypes = () => {
                 type: "object",
                 properties: {
                     event: {
-                        $ref: `#/definitions/SWContractEventType`,
+                        $ref: `#/definitions/${eventsType}`,
                     },
                     args: {
                         tsType: "any",
@@ -78,7 +77,7 @@ const generageEventTypes = () => {
         },
     };
 };
-exports.SWTypeFactory = (abi) => {
+exports.SWTypeFactory = (abi, typeNamePreffix) => {
     const { functions, functionNames, eventNames } = abi.reduce((prev, curr) => {
         if (curr.type === "function") {
             prev.functions.push(curr);
@@ -97,8 +96,8 @@ exports.SWTypeFactory = (abi) => {
     });
     return {
         definitions: {
-            [`SWContractEventType`]: {
-                title: `SWContractEventType`,
+            [`${typeNamePreffix}ContractEventType`]: {
+                title: `${typeNamePreffix}ContractEventType`,
                 enum: eventNames,
                 tsEnumNames: eventNames,
                 type: "string",
@@ -106,16 +105,16 @@ exports.SWTypeFactory = (abi) => {
         },
         items: [
             {
-                title: `SWContractFunctions`,
+                title: `${typeNamePreffix}ContractFunctions`,
                 type: "object",
-                properties: generateMainFunctions(functions),
+                properties: generateMainFunctions(functions, `${typeNamePreffix}ContractEvents`),
                 required: functionNames,
                 additionalProperties: false,
             },
             {
-                title: `SWContractEvents`,
+                title: `${typeNamePreffix}ContractEvents`,
                 type: "object",
-                properties: generageEventTypes(),
+                properties: generageEventTypes(`${typeNamePreffix}ContractEventType`),
                 required: ["events"],
                 additionalProperties: false,
             },

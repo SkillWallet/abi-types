@@ -10,4 +10,6 @@ __export(require("./PartnersRegistry.abi"));
 __export(require("./SkillWallet.abi"));
 __export(require("./Gigs.abi"));
 __export(require("./Olympics.abi"));
+__export(require("./Competitions.abi"));
+__export(require("./Checkpoints.abi"));
 //# sourceMappingURL=index.js.map
