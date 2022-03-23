@@ -109,8 +109,9 @@ const createContractProxy = <EventTypes, ContractFunctions>(
 export const Web3ContractProvider = async <EventTypes, ContractFunctions>(
   addressOrName: string,
   contractInterface: ContractInterface,
-  extras: Web3ProviderExtras<EventTypes> = new Web3ProviderExtras()
+  extras: Web3ProviderExtras<EventTypes>
 ) => {
+  extras = new Web3ProviderExtras(extras);
   // @ts-ignore
   if (!window.ethereum.selectedAddress) {
     // @ts-ignore
