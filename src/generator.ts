@@ -12,6 +12,7 @@ import {
   GigsABI,
   OlympicsABI,
 } from "./abis/index";
+import { Web3SkillWalletProvider } from "./ProviderFactory";
 
 import { SWTypeFactory } from "./type-factory";
 

@@ -96,16 +96,11 @@ const createContractProxy = (contract, extras) => {
         },
     });
 };
-exports.Web3ContractProvider = (addressOrName, contractInterface, extras = new Web3ProviderExtras()) => __awaiter(void 0, void 0, void 0, function* () {
-    // @ts-ignore
-    if (!window.ethereum.selectedAddress) {
-        // @ts-ignore
-        yield window.ethereum.enable();
-    }
-    // change network or something
+exports.Web3ContractProvider = (addressOrName, contractInterface, extras) => __awaiter(void 0, void 0, void 0, function* () {
+    extras = new Web3ProviderExtras(extras);
     yield extras.beforeRequest();
     // @ts-ignore
-    const provider = new ethers_1.ethers.providers.Web3Provider(window.ethereum);
+    const provider = new ethers_1.ethers.providers.Web3Provider(window === null || window === void 0 ? void 0 : window.ethereum);
     const signer = provider.getSigner();
     const contract = new ethers_1.ethers.Contract(addressOrName, contractInterface, signer);
     const proxy = createContractProxy(contract, extras);

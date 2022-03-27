@@ -112,17 +112,10 @@ export const Web3ContractProvider = async <EventTypes, ContractFunctions>(
   extras: Web3ProviderExtras<EventTypes>
 ) => {
   extras = new Web3ProviderExtras(extras);
-  // @ts-ignore
-  if (!window.ethereum.selectedAddress) {
-    // @ts-ignore
-    await window.ethereum.enable();
-  }
-
-  // change network or something
   await extras.beforeRequest();
 
   // @ts-ignore
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const provider = new ethers.providers.Web3Provider(window?.ethereum);
   const signer = provider.getSigner();
   const contract: Contract = new ethers.Contract(
     addressOrName,

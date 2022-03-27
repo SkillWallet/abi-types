@@ -2,7 +2,8 @@
   "compilerOptions": {
     "declaration": true,
     "lib": [
-      "es2015"
+      "es2015",
+      "dom"
     ],
     "module": "commonjs",
     "moduleResolution": "node",
@@ -13,6 +14,9 @@
     "declarationDir": "dist",
     "outDir": "./dist",
     "rootDir": "src",
+    "typeRoots": [
+      "types.d.ts"
+  ],
     "preserveConstEnums": false,
     "sourceMap": true,
     "strictNullChecks": true,
