@@ -8,3 +8,4 @@ export * from "./Olympics.abi";
 export * from "./Competitions.abi";
 export * from "./Checkpoints.abi";
 export * from "./Activities.abi";
+export * from "./SkillWalletCommunity.abi";

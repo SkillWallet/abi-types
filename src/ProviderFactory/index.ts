@@ -8,4 +8,5 @@ export * from "./PartnersAgreementProvider";
 export * from "./PartnersRegistryProvider";
 export * from "./SkillWalletProvider";
 export * from "./ActivitiesProvider";
+export * from "./SkillWalletCommunityProvider";
 export * from "./web3.provider";

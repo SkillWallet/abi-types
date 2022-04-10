@@ -10,43 +10,99 @@ export declare type SWEvent = {
     args: any;
 }[];
 export interface SkillWalletContractFunctions {
-    activeMembersCount: (overrides?: CallOverrides) => Promise<number>;
-    addNewCoreTeamMembers: (member: string, overrides?: CallOverrides) => Promise<{
+    activateSkillWallet: (skillWalletId: number, overrides?: CallOverrides) => Promise<{
         wait: () => Promise<SkillWalletContractEvents>;
     }>;
-    coreTeamMembersCount: (overrides?: CallOverrides) => Promise<number>;
-    getCoreTeamMembers: (overrides?: CallOverrides) => Promise<string[]>;
-    getMemberAddresses: (overrides?: CallOverrides) => Promise<string[]>;
-    getMembers: (overrides?: CallOverrides) => Promise<number[]>;
-    getSkillWalletAddress: (overrides?: CallOverrides) => Promise<string>;
-    isCoreTeamMember: (overrides?: CallOverrides) => Promise<boolean>;
-    isMember: (overrides?: CallOverrides) => Promise<boolean>;
-    isPermissioned: (overrides?: CallOverrides) => Promise<boolean>;
-    joinNewMember: (uri: string, role: number, overrides?: CallOverrides) => Promise<{
+    addDiscordIDToSkillWallet: (discordID: string, overrides?: CallOverrides) => Promise<{
         wait: () => Promise<SkillWalletContractEvents>;
     }>;
-    memberAddresses: (overrides?: CallOverrides) => Promise<string>;
-    metadataUri: (overrides?: CallOverrides) => Promise<string>;
-    migratedFrom: (overrides?: CallOverrides) => Promise<string>;
-    migratedTo: (overrides?: CallOverrides) => Promise<string>;
+    addPubKeyToSkillWallet: (skillWalletId: number, pubKey: string, overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<SkillWalletContractEvents>;
+    }>;
+    approve: (to: string, tokenId: number, overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<SkillWalletContractEvents>;
+    }>;
+    balanceOf: (owner: string, overrides?: CallOverrides) => Promise<number>;
+    baseURI: (overrides?: CallOverrides) => Promise<string>;
+    claim: (overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<SkillWalletContractEvents>;
+    }>;
+    create: (skillWalletOwner: string, url: string, role: number, isClaimable: boolean, overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<SkillWalletContractEvents>;
+    }>;
+    getActiveCommunity: (skillWalletId: number, overrides?: CallOverrides) => Promise<{
+        community: string;
+    }>;
+    getApproved: (tokenId: number, overrides?: CallOverrides) => Promise<string>;
+    getClaimableSkillWalletId: (skillWalletOwner: string, overrides?: CallOverrides) => Promise<number>;
+    getCommunityHistory: (skillWalletId: number, overrides?: CallOverrides) => Promise<{
+        communities: string[];
+    }>;
+    getOSMAddress: (overrides?: CallOverrides) => Promise<string>;
+    getPubKeyBySkillWalletId: (skillWalletId: number, overrides?: CallOverrides) => Promise<string>;
+    getRole: (skillWalletHolderAddress: string, overrides?: CallOverrides) => Promise<number>;
+    getSkillWalletIdByOwner: (skillWalletOwner: string, overrides?: CallOverrides) => Promise<number>;
+    getTotalSkillWalletsRegistered: (overrides?: CallOverrides) => Promise<number>;
+    initialize: (_linkToken: string, _oracle: string, overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<SkillWalletContractEvents>;
+    }>;
+    isApprovedForAll: (owner: string, operator: string, overrides?: CallOverrides) => Promise<boolean>;
+    isRequestIdValid: (requestId: string, overrides?: CallOverrides) => Promise<boolean>;
+    isSkillWalletActivated: (skillWalletId: number, overrides?: CallOverrides) => Promise<{
+        status: boolean;
+    }>;
+    isSkillWalletClaimable: (skillWalletOwner: string, overrides?: CallOverrides) => Promise<{
+        status: boolean;
+    }>;
+    isSkillWalletRegistered: (skillWalletOwner: string, overrides?: CallOverrides) => Promise<{
+        status: boolean;
+    }>;
+    name: (overrides?: CallOverrides) => Promise<string>;
+    onERC721Received: (operator: string, from: string, tokenId: number, data: string, overrides?: CallOverrides) => Promise<string>;
+    osmAddress: (overrides?: CallOverrides) => Promise<string>;
     owner: (overrides?: CallOverrides) => Promise<string>;
-    setMetadataUri: (uri: string, overrides?: CallOverrides) => Promise<{
+    ownerOf: (tokenId: number, overrides?: CallOverrides) => Promise<string>;
+    renounceOwnership: (overrides?: CallOverrides) => Promise<{
         wait: () => Promise<SkillWalletContractEvents>;
     }>;
-    setPermissionBadgeAddress: (_permissionBadgeAddr: string, overrides?: CallOverrides) => Promise<{
+    safeTransferFrom: (from: string, to: string, tokenId: number, _data: string, overrides?: CallOverrides) => Promise<{
         wait: () => Promise<SkillWalletContractEvents>;
     }>;
-    skillWallet: (overrides?: CallOverrides) => Promise<string>;
-    skillWalletIds: (overrides?: CallOverrides) => Promise<number>;
-    template: (overrides?: CallOverrides) => Promise<number>;
-    testMapping: (overrides?: CallOverrides) => Promise<number>;
-    totalMembersAllowed: (overrides?: CallOverrides) => Promise<number>;
-    version: (overrides?: CallOverrides) => Promise<number>;
+    setApprovalForAll: (operator: string, approved: boolean, overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<SkillWalletContractEvents>;
+    }>;
+    setChainlinkDetails: (oracle: string, jobID: string, fee: number, overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<SkillWalletContractEvents>;
+    }>;
+    skillWalletClaimers: (overrides?: CallOverrides) => Promise<number>;
+    skillWalletToDiscordID: (overrides?: CallOverrides) => Promise<string>;
+    skillWalletToPubKey: (overrides?: CallOverrides) => Promise<string>;
+    skillWalletToRole: (overrides?: CallOverrides) => Promise<number>;
+    supportsInterface: (interfaceId: string, overrides?: CallOverrides) => Promise<boolean>;
+    symbol: (overrides?: CallOverrides) => Promise<string>;
+    tokenByIndex: (index: number, overrides?: CallOverrides) => Promise<number>;
+    tokenOfOwnerByIndex: (owner: string, index: number, overrides?: CallOverrides) => Promise<number>;
+    tokenURI: (tokenId: number, overrides?: CallOverrides) => Promise<string>;
+    totalSupply: (overrides?: CallOverrides) => Promise<number>;
+    transferFrom: (from: string, to: string, tokenId: number, overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<SkillWalletContractEvents>;
+    }>;
+    transferOwnership: (newOwner: string, overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<SkillWalletContractEvents>;
+    }>;
 }
 export interface SkillWalletContractEvents {
     events: SWEvent;
 }
 export declare enum SkillWalletContractEventType {
-    CoreTeamMemberAdded = "CoreTeamMemberAdded",
-    MemberAdded = "MemberAdded"
+    Approval = "Approval",
+    ApprovalForAll = "ApprovalForAll",
+    DiscordIDConnectedToSkillWallet = "DiscordIDConnectedToSkillWallet",
+    OwnershipTransferred = "OwnershipTransferred",
+    PubKeyAddedToSkillWallet = "PubKeyAddedToSkillWallet",
+    SkillWalletActivated = "SkillWalletActivated",
+    SkillWalletClaimed = "SkillWalletClaimed",
+    SkillWalletCommunityChanged = "SkillWalletCommunityChanged",
+    SkillWalletCreated = "SkillWalletCreated",
+    Transfer = "Transfer"
 }

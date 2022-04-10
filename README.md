@@ -60,4 +60,5 @@ try {
 - Web3PartnersAgreementProvider
 - Web3PartnersRegistryProvider
 - Web3SkillWalletProvider
+- Web3SkillWalletCommunityProvider
 - Web3ActivitiesProvider

@@ -75,6 +75,11 @@ const all = [
         preffix: "SkillWallet",
     },
     {
+        path: `src/ProviderFactory/SkillWalletCommunityProvider/sw-contract-functions.ts`,
+        abi: index_1.SkillWalletCommunityABI,
+        preffix: "SkillWalletCommunity",
+    },
+    {
         path: `src/ProviderFactory/ActivitiesProvider/sw-contract-functions.ts`,
         abi: index_1.ActivitiesABI,
         preffix: "Activities",

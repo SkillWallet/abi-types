@@ -13,6 +13,7 @@ import {
   GigsABI,
   OlympicsABI,
   ActivitiesABI,
+  SkillWalletCommunityABI,
 } from "./abis/index";
 
 import { SWTypeFactory } from "./type-factory";
@@ -81,6 +82,11 @@ const all = [
     path: `src/ProviderFactory/SkillWalletProvider/sw-contract-functions.ts`,
     abi: SkillWalletABI,
     preffix: "SkillWallet",
+  },
+  {
+    path: `src/ProviderFactory/SkillWalletCommunityProvider/sw-contract-functions.ts`,
+    abi: SkillWalletCommunityABI,
+    preffix: "SkillWalletCommunity",
   },
   {
     path: `src/ProviderFactory/ActivitiesProvider/sw-contract-functions.ts`,
