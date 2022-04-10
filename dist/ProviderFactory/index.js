@@ -12,5 +12,6 @@ __export(require("./OlympicsProvider"));
 __export(require("./PartnersAgreementProvider"));
 __export(require("./PartnersRegistryProvider"));
 __export(require("./SkillWalletProvider"));
+__export(require("./ActivitiesProvider"));
 __export(require("./web3.provider"));
 //# sourceMappingURL=index.js.map

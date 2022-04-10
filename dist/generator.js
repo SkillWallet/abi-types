@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const json_schema_to_typescript_1 = require("json-schema-to-typescript");
+const { dedent } = require("tslint/lib/utils");
 const index_1 = require("./abis/index");
 const type_factory_1 = require("./type-factory");
 function generateTypes(path, abi, preffix) {
@@ -73,12 +74,41 @@ const all = [
         abi: index_1.SkillWalletABI,
         preffix: "SkillWallet",
     },
+    {
+        path: `src/ProviderFactory/ActivitiesProvider/sw-contract-functions.ts`,
+        abi: index_1.ActivitiesABI,
+        preffix: "Activities",
+    },
 ];
 const generate = () => __awaiter(void 0, void 0, void 0, function* () {
     for (let i = 0; i < all.length; i += 1) {
         const { path, abi, preffix } = all[i];
+        try {
+            fs_1.unlinkSync(path);
+        }
+        catch (err) {
+            console.error(err);
+        }
         yield generateTypes(path, abi, preffix);
+        try {
+            yield updateTsFile(path);
+        }
+        catch (err) {
+            console.error(err);
+        }
     }
 });
 generate();
+const updateTsFile = (dirPath) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const fileData = fs_1.readFileSync(dirPath);
+        const fileAsStr = fileData.toString("utf8");
+        fs_1.writeFileSync(dirPath, dedent `import { CallOverrides } from "ethers";
+      ${fileAsStr}`, { encoding: "utf8" });
+    }
+    catch (err) {
+        console.log(err);
+        // handle error here
+    }
+});
 //# sourceMappingURL=generator.js.map

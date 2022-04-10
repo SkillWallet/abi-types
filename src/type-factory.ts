@@ -64,14 +64,22 @@ const generateMainFunctions = (
   mainFunctions: JsonFragment[],
   eventType: string
 ) => {
-  return mainFunctions.reduce((prev, curr) => {
+  const main = mainFunctions.reduce((prev, curr) => {
+    let args = generateArguments(
+      curr.inputs as ReadonlyArray<JsonFragmentType>
+    );
+
+    if (args?.length) {
+      args = `${args}, overrides?: CallOverrides`;
+    } else {
+      args = `overrides?: CallOverrides`;
+    }
+
     return {
       ...prev,
       [curr.name as string]: {
         instanceOf: "Function",
-        tsType: `(${generateArguments(
-          curr.inputs as ReadonlyArray<JsonFragmentType>
-        )}) => Promise<${getReturnTypes(
+        tsType: `(${args}) => Promise<${getReturnTypes(
           curr.outputs as ReadonlyArray<JsonFragmentType>,
           curr.stateMutability as string,
           eventType
@@ -79,6 +87,7 @@ const generateMainFunctions = (
       },
     };
   }, {});
+  return main;
 };
 
 const generageEventTypes = (eventsType: string) => {

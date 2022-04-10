@@ -49,12 +49,20 @@ const getReturnTypes = (config, stateMutability, eventType) => {
     return `void`;
 };
 const generateMainFunctions = (mainFunctions, eventType) => {
-    return mainFunctions.reduce((prev, curr) => {
+    const main = mainFunctions.reduce((prev, curr) => {
+        let args = generateArguments(curr.inputs);
+        if (args === null || args === void 0 ? void 0 : args.length) {
+            args = `${args}, overrides?: CallOverrides`;
+        }
+        else {
+            args = `overrides?: CallOverrides`;
+        }
         return Object.assign(Object.assign({}, prev), { [curr.name]: {
                 instanceOf: "Function",
-                tsType: `(${generateArguments(curr.inputs)}) => Promise<${getReturnTypes(curr.outputs, curr.stateMutability, eventType)}>`,
+                tsType: `(${args}) => Promise<${getReturnTypes(curr.outputs, curr.stateMutability, eventType)}>`,
             } });
     }, {});
+    return main;
 };
 const generageEventTypes = (eventsType) => {
     return {

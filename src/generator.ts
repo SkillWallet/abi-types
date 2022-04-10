@@ -1,6 +1,7 @@
-import { writeFileSync } from "fs";
+import { readFile, readFileSync, unlinkSync, writeFileSync } from "fs";
 import { compile } from "json-schema-to-typescript";
 import { JsonFragment } from "./abis.model";
+const { dedent } = require("tslint/lib/utils");
 import {
   DITOCommunityABI,
   SkillWalletABI,
@@ -11,8 +12,8 @@ import {
   CommunityRegistryABI,
   GigsABI,
   OlympicsABI,
+  ActivitiesABI,
 } from "./abis/index";
-import { Web3SkillWalletProvider } from "./ProviderFactory";
 
 import { SWTypeFactory } from "./type-factory";
 
@@ -81,13 +82,45 @@ const all = [
     abi: SkillWalletABI,
     preffix: "SkillWallet",
   },
+  {
+    path: `src/ProviderFactory/ActivitiesProvider/sw-contract-functions.ts`,
+    abi: ActivitiesABI,
+    preffix: "Activities",
+  },
 ];
 
 const generate = async () => {
   for (let i = 0; i < all.length; i += 1) {
     const { path, abi, preffix } = all[i];
+    try {
+      unlinkSync(path);
+    } catch (err) {
+      console.error(err);
+    }
     await generateTypes(path, abi, preffix);
+    try {
+      await updateTsFile(path);
+    } catch (err) {
+      console.error(err);
+    }
   }
 };
 
 generate();
+
+const updateTsFile = async (dirPath) => {
+  try {
+    const fileData = readFileSync(dirPath);
+    const fileAsStr = fileData.toString("utf8");
+
+    writeFileSync(
+      dirPath,
+      dedent`import { CallOverrides } from "ethers";
+      ${fileAsStr}`,
+      { encoding: "utf8" }
+    );
+  } catch (err) {
+    console.log(err);
+    // handle error here
+  }
+};

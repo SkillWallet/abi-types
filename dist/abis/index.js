@@ -12,4 +12,5 @@ __export(require("./Gigs.abi"));
 __export(require("./Olympics.abi"));
 __export(require("./Competitions.abi"));
 __export(require("./Checkpoints.abi"));
+__export(require("./Activities.abi"));
 //# sourceMappingURL=index.js.map

@@ -7,4 +7,5 @@ export * from "./OlympicsProvider";
 export * from "./PartnersAgreementProvider";
 export * from "./PartnersRegistryProvider";
 export * from "./SkillWalletProvider";
+export * from "./ActivitiesProvider";
 export * from "./web3.provider";
