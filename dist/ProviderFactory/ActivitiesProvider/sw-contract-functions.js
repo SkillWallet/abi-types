@@ -7,6 +7,7 @@ var ActivitiesContractEventType;
     ActivitiesContractEventType["Approval"] = "Approval";
     ActivitiesContractEventType["ApprovalForAll"] = "ApprovalForAll";
     ActivitiesContractEventType["TaskFinalized"] = "TaskFinalized";
+    ActivitiesContractEventType["TaskSubmitted"] = "TaskSubmitted";
     ActivitiesContractEventType["TaskTaken"] = "TaskTaken";
     ActivitiesContractEventType["Transfer"] = "Transfer";
 })(ActivitiesContractEventType = exports.ActivitiesContractEventType || (exports.ActivitiesContractEventType = {}));

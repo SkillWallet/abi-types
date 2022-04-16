@@ -10,6 +10,7 @@ export declare type SWEvent = {
     args: any;
 }[];
 export interface ActivitiesContractFunctions {
+    activityToRole: (overrides?: CallOverrides) => Promise<number>;
     activityToTask: (overrides?: CallOverrides) => Promise<number>;
     approve: (to: string, tokenId: number, overrides?: CallOverrides) => Promise<{
         wait: () => Promise<ActivitiesContractEvents>;
@@ -17,10 +18,10 @@ export interface ActivitiesContractFunctions {
     balanceOf: (owner: string, overrides?: CallOverrides) => Promise<number>;
     baseURI: (overrides?: CallOverrides) => Promise<string>;
     community: (overrides?: CallOverrides) => Promise<string>;
-    createActivity: (_type: number, _uri: string, overrides?: CallOverrides) => Promise<{
+    createActivity: (_type: number, _role: number, _uri: string, overrides?: CallOverrides) => Promise<{
         wait: () => Promise<ActivitiesContractEvents>;
     }>;
-    createTask: (_uri: string, overrides?: CallOverrides) => Promise<{
+    createTask: (_role: number, _uri: string, overrides?: CallOverrides) => Promise<{
         wait: () => Promise<ActivitiesContractEvents>;
     }>;
     discordBotAddress: (overrides?: CallOverrides) => Promise<string>;
@@ -46,6 +47,12 @@ export interface ActivitiesContractFunctions {
     setApprovalForAll: (operator: string, approved: boolean, overrides?: CallOverrides) => Promise<{
         wait: () => Promise<ActivitiesContractEvents>;
     }>;
+    setDiscordBotAddress: (_discordBotAddress: string, overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<ActivitiesContractEvents>;
+    }>;
+    submitTask: (_activityId: number, _submitionUrl: string, overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<ActivitiesContractEvents>;
+    }>;
     supportsInterface: (interfaceId: string, overrides?: CallOverrides) => Promise<boolean>;
     symbol: (overrides?: CallOverrides) => Promise<string>;
     takeTask: (_activityId: number, overrides?: CallOverrides) => Promise<{
@@ -57,6 +64,8 @@ export interface ActivitiesContractFunctions {
         status: number;
         creator: string;
         taker: string;
+        submitionUrl: string;
+        role: number;
     }>;
     tokenByIndex: (index: number, overrides?: CallOverrides) => Promise<number>;
     tokenOfOwnerByIndex: (owner: string, index: number, overrides?: CallOverrides) => Promise<number>;
@@ -75,6 +84,7 @@ export declare enum ActivitiesContractEventType {
     Approval = "Approval",
     ApprovalForAll = "ApprovalForAll",
     TaskFinalized = "TaskFinalized",
+    TaskSubmitted = "TaskSubmitted",
     TaskTaken = "TaskTaken",
     Transfer = "Transfer"
 }
