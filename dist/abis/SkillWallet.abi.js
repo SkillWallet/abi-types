@@ -2,6 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SkillWalletABI = [
     {
+        inputs: [],
+        stateMutability: "nonpayable",
+        type: "constructor",
+    },
+    {
         anonymous: false,
         inputs: [
             {
@@ -56,17 +61,23 @@ exports.SkillWalletABI = [
         inputs: [
             {
                 indexed: false,
-                internalType: "uint256",
-                name: "tokenId",
-                type: "uint256",
+                internalType: "address",
+                name: "communityAddress",
+                type: "address",
             },
             {
                 indexed: false,
-                internalType: "string",
-                name: "discordId",
-                type: "string",
+                internalType: "address",
+                name: "member",
+                type: "address",
             },
         ],
+        name: "CommunityJoined",
+        type: "event",
+    },
+    {
+        anonymous: false,
+        inputs: [],
         name: "DiscordIDConnectedToSkillWallet",
         type: "event",
     },
@@ -74,104 +85,15 @@ exports.SkillWalletABI = [
         anonymous: false,
         inputs: [
             {
-                indexed: true,
-                internalType: "address",
-                name: "previousOwner",
-                type: "address",
-            },
-            {
-                indexed: true,
-                internalType: "address",
-                name: "newOwner",
-                type: "address",
-            },
-        ],
-        name: "OwnershipTransferred",
-        type: "event",
-    },
-    {
-        anonymous: false,
-        inputs: [
-            {
-                indexed: true,
-                internalType: "uint256",
-                name: "skillWalletId",
-                type: "uint256",
-            },
-        ],
-        name: "PubKeyAddedToSkillWallet",
-        type: "event",
-    },
-    {
-        anonymous: false,
-        inputs: [
-            {
-                indexed: true,
-                internalType: "uint256",
-                name: "skillWalletId",
-                type: "uint256",
-            },
-        ],
-        name: "SkillWalletActivated",
-        type: "event",
-    },
-    {
-        anonymous: false,
-        inputs: [
-            {
-                indexed: false,
-                internalType: "uint256",
-                name: "tokenId",
-                type: "uint256",
-            },
-            {
                 indexed: false,
                 internalType: "address",
                 name: "owner",
                 type: "address",
             },
-        ],
-        name: "SkillWalletClaimed",
-        type: "event",
-    },
-    {
-        anonymous: false,
-        inputs: [
-            {
-                indexed: true,
-                internalType: "uint256",
-                name: "skillWalletId",
-                type: "uint256",
-            },
             {
                 indexed: false,
-                internalType: "address",
-                name: "newCommunity",
-                type: "address",
-            },
-        ],
-        name: "SkillWalletCommunityChanged",
-        type: "event",
-    },
-    {
-        anonymous: false,
-        inputs: [
-            {
-                indexed: true,
-                internalType: "address",
-                name: "skillWalletOwner",
-                type: "address",
-            },
-            {
-                indexed: true,
-                internalType: "address",
-                name: "community",
-                type: "address",
-            },
-            {
-                indexed: true,
                 internalType: "uint256",
-                name: "skillWalletId",
+                name: "tokenID",
                 type: "uint256",
             },
         ],
@@ -206,43 +128,12 @@ exports.SkillWalletABI = [
     {
         inputs: [
             {
-                internalType: "uint256",
-                name: "skillWalletId",
-                type: "uint256",
-            },
-        ],
-        name: "activateSkillWallet",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
                 internalType: "string",
                 name: "discordID",
                 type: "string",
             },
         ],
         name: "addDiscordIDToSkillWallet",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "uint256",
-                name: "skillWalletId",
-                type: "uint256",
-            },
-            {
-                internalType: "string",
-                name: "pubKey",
-                type: "string",
-            },
-        ],
-        name: "addPubKeyToSkillWallet",
         outputs: [],
         stateMutability: "nonpayable",
         type: "function",
@@ -285,73 +176,6 @@ exports.SkillWalletABI = [
         type: "function",
     },
     {
-        inputs: [],
-        name: "baseURI",
-        outputs: [
-            {
-                internalType: "string",
-                name: "",
-                type: "string",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [],
-        name: "claim",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "address",
-                name: "skillWalletOwner",
-                type: "address",
-            },
-            {
-                internalType: "string",
-                name: "url",
-                type: "string",
-            },
-            {
-                internalType: "enum RoleUtils.Roles",
-                name: "role",
-                type: "uint8",
-            },
-            {
-                internalType: "bool",
-                name: "isClaimable",
-                type: "bool",
-            },
-        ],
-        name: "create",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "uint256",
-                name: "skillWalletId",
-                type: "uint256",
-            },
-        ],
-        name: "getActiveCommunity",
-        outputs: [
-            {
-                internalType: "address",
-                name: "community",
-                type: "address",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
         inputs: [
             {
                 internalType: "uint256",
@@ -374,86 +198,33 @@ exports.SkillWalletABI = [
         inputs: [
             {
                 internalType: "address",
-                name: "skillWalletOwner",
+                name: "skillWalletHolder",
                 type: "address",
             },
         ],
-        name: "getClaimableSkillWalletId",
+        name: "getCommunities",
         outputs: [
             {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "uint256",
-                name: "skillWalletId",
-                type: "uint256",
-            },
-        ],
-        name: "getCommunityHistory",
-        outputs: [
-            {
-                internalType: "address[]",
+                components: [
+                    {
+                        internalType: "address",
+                        name: "communityExtension",
+                        type: "address",
+                    },
+                    {
+                        internalType: "uint256",
+                        name: "role",
+                        type: "uint256",
+                    },
+                    {
+                        internalType: "uint256",
+                        name: "commitment",
+                        type: "uint256",
+                    },
+                ],
+                internalType: "struct ISkillWallet.CommunityMember[]",
                 name: "communities",
-                type: "address[]",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [],
-        name: "getOSMAddress",
-        outputs: [
-            {
-                internalType: "address",
-                name: "",
-                type: "address",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "uint256",
-                name: "skillWalletId",
-                type: "uint256",
-            },
-        ],
-        name: "getPubKeyBySkillWalletId",
-        outputs: [
-            {
-                internalType: "string",
-                name: "",
-                type: "string",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "address",
-                name: "skillWalletHolderAddress",
-                type: "address",
-            },
-        ],
-        name: "getRole",
-        outputs: [
-            {
-                internalType: "enum RoleUtils.Roles",
-                name: "",
-                type: "uint8",
+                type: "tuple[]",
             },
         ],
         stateMutability: "view",
@@ -476,37 +247,6 @@ exports.SkillWalletABI = [
             },
         ],
         stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [],
-        name: "getTotalSkillWalletsRegistered",
-        outputs: [
-            {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "address",
-                name: "_linkToken",
-                type: "address",
-            },
-            {
-                internalType: "address",
-                name: "_oracle",
-                type: "address",
-            },
-        ],
-        name: "initialize",
-        outputs: [],
-        stateMutability: "nonpayable",
         type: "function",
     },
     {
@@ -536,77 +276,52 @@ exports.SkillWalletABI = [
     {
         inputs: [
             {
-                internalType: "bytes32",
-                name: "requestId",
-                type: "bytes32",
-            },
-        ],
-        name: "isRequestIdValid",
-        outputs: [
-            {
-                internalType: "bool",
-                name: "",
-                type: "bool",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
                 internalType: "uint256",
-                name: "skillWalletId",
+                name: "role",
                 type: "uint256",
             },
-        ],
-        name: "isSkillWalletActivated",
-        outputs: [
             {
-                internalType: "bool",
-                name: "status",
-                type: "bool",
+                internalType: "uint256",
+                name: "commitment",
+                type: "uint256",
+            },
+            {
+                internalType: "address",
+                name: "communityExtension",
+                type: "address",
             },
         ],
-        stateMutability: "view",
+        name: "joinCommunity",
+        outputs: [],
+        stateMutability: "nonpayable",
         type: "function",
     },
     {
         inputs: [
             {
+                internalType: "string",
+                name: "url",
+                type: "string",
+            },
+            {
+                internalType: "uint256",
+                name: "role",
+                type: "uint256",
+            },
+            {
+                internalType: "uint256",
+                name: "commitment",
+                type: "uint256",
+            },
+            {
                 internalType: "address",
-                name: "skillWalletOwner",
+                name: "communityExtension",
                 type: "address",
             },
         ],
-        name: "isSkillWalletClaimable",
-        outputs: [
-            {
-                internalType: "bool",
-                name: "status",
-                type: "bool",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "address",
-                name: "skillWalletOwner",
-                type: "address",
-            },
-        ],
-        name: "isSkillWalletRegistered",
-        outputs: [
-            {
-                internalType: "bool",
-                name: "status",
-                type: "bool",
-            },
-        ],
-        stateMutability: "view",
+        name: "mint",
+        outputs: [],
+        stateMutability: "nonpayable",
         type: "function",
     },
     {
@@ -617,66 +332,6 @@ exports.SkillWalletABI = [
                 internalType: "string",
                 name: "",
                 type: "string",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "address",
-                name: "operator",
-                type: "address",
-            },
-            {
-                internalType: "address",
-                name: "from",
-                type: "address",
-            },
-            {
-                internalType: "uint256",
-                name: "tokenId",
-                type: "uint256",
-            },
-            {
-                internalType: "bytes",
-                name: "data",
-                type: "bytes",
-            },
-        ],
-        name: "onERC721Received",
-        outputs: [
-            {
-                internalType: "bytes4",
-                name: "",
-                type: "bytes4",
-            },
-        ],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [],
-        name: "osmAddress",
-        outputs: [
-            {
-                internalType: "address",
-                name: "",
-                type: "address",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [],
-        name: "owner",
-        outputs: [
-            {
-                internalType: "address",
-                name: "",
-                type: "address",
             },
         ],
         stateMutability: "view",
@@ -699,13 +354,6 @@ exports.SkillWalletABI = [
             },
         ],
         stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [],
-        name: "renounceOwnership",
-        outputs: [],
-        stateMutability: "nonpayable",
         type: "function",
     },
     {
@@ -780,48 +428,6 @@ exports.SkillWalletABI = [
     {
         inputs: [
             {
-                internalType: "address",
-                name: "oracle",
-                type: "address",
-            },
-            {
-                internalType: "bytes32",
-                name: "jobID",
-                type: "bytes32",
-            },
-            {
-                internalType: "uint256",
-                name: "fee",
-                type: "uint256",
-            },
-        ],
-        name: "setChainlinkDetails",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "address",
-                name: "",
-                type: "address",
-            },
-        ],
-        name: "skillWalletClaimers",
-        outputs: [
-            {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
                 internalType: "uint256",
                 name: "",
                 type: "uint256",
@@ -833,44 +439,6 @@ exports.SkillWalletABI = [
                 internalType: "string",
                 name: "",
                 type: "string",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
-        ],
-        name: "skillWalletToPubKey",
-        outputs: [
-            {
-                internalType: "string",
-                name: "",
-                type: "string",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
-        ],
-        name: "skillWalletToRole",
-        outputs: [
-            {
-                internalType: "enum RoleUtils.Roles",
-                name: "",
-                type: "uint8",
             },
         ],
         stateMutability: "view",
@@ -912,49 +480,6 @@ exports.SkillWalletABI = [
         inputs: [
             {
                 internalType: "uint256",
-                name: "index",
-                type: "uint256",
-            },
-        ],
-        name: "tokenByIndex",
-        outputs: [
-            {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "address",
-                name: "owner",
-                type: "address",
-            },
-            {
-                internalType: "uint256",
-                name: "index",
-                type: "uint256",
-            },
-        ],
-        name: "tokenOfOwnerByIndex",
-        outputs: [
-            {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "uint256",
                 name: "tokenId",
                 type: "uint256",
             },
@@ -965,19 +490,6 @@ exports.SkillWalletABI = [
                 internalType: "string",
                 name: "",
                 type: "string",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [],
-        name: "totalSupply",
-        outputs: [
-            {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
             },
         ],
         stateMutability: "view",
@@ -1002,19 +514,6 @@ exports.SkillWalletABI = [
             },
         ],
         name: "transferFrom",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "address",
-                name: "newOwner",
-                type: "address",
-            },
-        ],
-        name: "transferOwnership",
         outputs: [],
         stateMutability: "nonpayable",
         type: "function",
