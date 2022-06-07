@@ -18,10 +18,27 @@ const types: any = {
 const generateArguments = (config: ReadonlyArray<JsonFragmentType>) => {
   return config
     .filter(({ name }) => !!name)
-    .map(({ name, type }) => {
-      return `${name}:${types[type as any] || "string"}`;
+    .map(({ name, type, components }) => {
+      if (components) {
+        return `${name}:${generateTupleArguments(components)}`
+      }
+      return `${name}:${types[type as any] || "string"}`
     })
     .join(",");
+};
+
+const generateTupleArguments = (config: ReadonlyArray<JsonFragmentType>) => {
+  return config
+    .filter(({ name }) => !!name)
+    .map(({ type }) => types[type as any] || "string")
+    .join(",");
+};
+
+const generateTupleArgumentsWithTypes = (config: ReadonlyArray<JsonFragmentType>) => {
+  return config
+    .filter(({ name }) => !!name)
+    .map(({ type, name }) => `${name}: ${types[type as any] || "string"}`)
+    .join("\n");
 };
 
 const getReturnTypes = (
@@ -29,6 +46,7 @@ const getReturnTypes = (
   stateMutability: string,
   eventType: string
 ) => {
+  let names: string;
   /*
     if there is only 1 argument and it has no name than we assume that 
     the response is of primitive type 
@@ -36,8 +54,13 @@ const getReturnTypes = (
     Key: Promise<boolean>; 
   */
   if (config.length === 1 && !config[0].name) {
-    const [{ type }] = config;
-    return `${types[type as string]}`;
+    const [{ type, components }] = config;
+    if (components) {
+      names = generateTupleArgumentsWithTypes(components);
+      return [names, `[${generateTupleArguments(components)}]`];
+    } else {
+      return [config[0].name, `${types[type as string]}`];
+    }
   }
 
   /*
@@ -48,16 +71,17 @@ const getReturnTypes = (
 
   if (stateMutability !== "view") {
     if (config.length > 1) {
-      return `{${args}, wait: () => Promise<${eventType}>}`;
+      return [null, `{${args}, wait: () => Promise<${eventType}>}`];
     }
-    return `{wait: () => Promise<${eventType}>}`;
+
+    return [null, `{wait: () => Promise<${eventType}>}`];
   }
 
   if (args.length) {
-    return `{${args}}`;
+    return [null, `{${args}}`];
   }
 
-  return `void`;
+  return [null, `void`];
 };
 
 const generateMainFunctions = (
@@ -75,15 +99,18 @@ const generateMainFunctions = (
       args = `overrides?: CallOverrides`;
     }
 
+    const [names, types] = getReturnTypes(
+      curr.outputs as ReadonlyArray<JsonFragmentType>,
+      curr.stateMutability as string,
+      eventType
+    );
+
     return {
       ...prev,
       [curr.name as string]: {
+        description: `${names ? 'Response type names are: \n\n' + names : ''}`,
         instanceOf: "Function",
-        tsType: `(${args}) => Promise<${getReturnTypes(
-          curr.outputs as ReadonlyArray<JsonFragmentType>,
-          curr.stateMutability as string,
-          eventType
-        )}>`,
+        tsType: `(${args}) => Promise<${types}>`,
       },
     };
   }, {});

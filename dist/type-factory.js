@@ -16,12 +16,28 @@ const types = {
 const generateArguments = (config) => {
     return config
         .filter(({ name }) => !!name)
-        .map(({ name, type }) => {
+        .map(({ name, type, components }) => {
+        if (components) {
+            return `${name}:${generateTupleArguments(components)}`;
+        }
         return `${name}:${types[type] || "string"}`;
     })
         .join(",");
 };
+const generateTupleArguments = (config) => {
+    return config
+        .filter(({ name }) => !!name)
+        .map(({ type }) => types[type] || "string")
+        .join(",");
+};
+const generateTupleArgumentsWithTypes = (config) => {
+    return config
+        .filter(({ name }) => !!name)
+        .map(({ type, name }) => `${name}: ${types[type] || "string"}`)
+        .join("\n");
+};
 const getReturnTypes = (config, stateMutability, eventType) => {
+    let names;
     /*
       if there is only 1 argument and it has no name than we assume that
       the response is of primitive type
@@ -29,8 +45,14 @@ const getReturnTypes = (config, stateMutability, eventType) => {
       Key: Promise<boolean>;
     */
     if (config.length === 1 && !config[0].name) {
-        const [{ type }] = config;
-        return `${types[type]}`;
+        const [{ type, components }] = config;
+        if (components) {
+            names = generateTupleArgumentsWithTypes(components);
+            return [names, `[${generateTupleArguments(components)}]`];
+        }
+        else {
+            return [config[0].name, `${types[type]}`];
+        }
     }
     /*
       All methods that do changes on the blockchain have stateMutability !== view
@@ -39,14 +61,14 @@ const getReturnTypes = (config, stateMutability, eventType) => {
     const args = generateArguments(config);
     if (stateMutability !== "view") {
         if (config.length > 1) {
-            return `{${args}, wait: () => Promise<${eventType}>}`;
+            return [null, `{${args}, wait: () => Promise<${eventType}>}`];
         }
-        return `{wait: () => Promise<${eventType}>}`;
+        return [null, `{wait: () => Promise<${eventType}>}`];
     }
     if (args.length) {
-        return `{${args}}`;
+        return [null, `{${args}}`];
     }
-    return `void`;
+    return [null, `void`];
 };
 const generateMainFunctions = (mainFunctions, eventType) => {
     const main = mainFunctions.reduce((prev, curr) => {
@@ -57,9 +79,11 @@ const generateMainFunctions = (mainFunctions, eventType) => {
         else {
             args = `overrides?: CallOverrides`;
         }
+        const [names, types] = getReturnTypes(curr.outputs, curr.stateMutability, eventType);
         return Object.assign(Object.assign({}, prev), { [curr.name]: {
+                description: `${names ? 'Response type names are: \n\n' + names : ''}`,
                 instanceOf: "Function",
-                tsType: `(${args}) => Promise<${getReturnTypes(curr.outputs, curr.stateMutability, eventType)}>`,
+                tsType: `(${args}) => Promise<${types}>`,
             } });
     }, {});
     return main;

@@ -51,7 +51,21 @@ export interface ActivitiesContractFunctions {
   getActivitiesByType: (_type: number, overrides?: CallOverrides) => Promise<number[]>;
   getApproved: (tokenId: number, overrides?: CallOverrides) => Promise<string>;
   getInteractionsAddr: (overrides?: CallOverrides) => Promise<string>;
-  getTaskByActivityId: (_activityId: number, overrides?: CallOverrides) => Promise<undefined>;
+  /**
+   * Response type names are:
+   *
+   * activityId: number
+   * createdOn: number
+   * status: number
+   * creator: string
+   * taker: string
+   * submitionUrl: string
+   * role: number
+   */
+  getTaskByActivityId: (
+    _activityId: number,
+    overrides?: CallOverrides
+  ) => Promise<[number, number, number, string, string, string, number]>;
   idTypes: (overrides?: CallOverrides) => Promise<number>;
   isApprovedForAll: (owner: string, operator: string, overrides?: CallOverrides) => Promise<boolean>;
   isFinalized: (overrides?: CallOverrides) => Promise<boolean>;

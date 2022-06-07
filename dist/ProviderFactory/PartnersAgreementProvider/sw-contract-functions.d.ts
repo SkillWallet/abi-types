@@ -29,7 +29,18 @@ export interface PartnersAgreementContractFunctions {
         wait: () => Promise<PartnersAgreementContractEvents>;
     }>;
     getActivitiesAddress: (overrides?: CallOverrides) => Promise<string>;
-    getAgreementData: (overrides?: CallOverrides) => Promise<undefined>;
+    /**
+     * Response type names are:
+     *
+     * version: number
+     * owner: string
+     * communityAddress: string
+     * partnersContracts: string[]
+     * rolesCount: number
+     * interactionContract: string
+     * commitmentLevel: number
+     */
+    getAgreementData: (overrides?: CallOverrides) => Promise<[number, string, string, string[], number, string, number]>;
     getAllMembers: (overrides?: CallOverrides) => Promise<string[]>;
     getImportedAddresses: (overrides?: CallOverrides) => Promise<string[]>;
     getSkillWalletAddress: (overrides?: CallOverrides) => Promise<string>;

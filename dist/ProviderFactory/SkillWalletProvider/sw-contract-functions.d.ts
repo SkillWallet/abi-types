@@ -21,7 +21,14 @@ export interface SkillWalletContractFunctions {
     getCommunities: (skillWalletHolder: string, overrides?: CallOverrides) => Promise<{
         communities: string[];
     }>;
-    getCommunityData: (skillWalletHolder: string, communityExtension: string, overrides?: CallOverrides) => Promise<undefined>;
+    /**
+     * Response type names are:
+     *
+     * communityExtension: string
+     * role: number
+     * commitment: number
+     */
+    getCommunityData: (skillWalletHolder: string, communityExtension: string, overrides?: CallOverrides) => Promise<[string, number, number]>;
     getSkillWalletIdByOwner: (skillWalletOwner: string, overrides?: CallOverrides) => Promise<number>;
     isApprovedForAll: (owner: string, operator: string, overrides?: CallOverrides) => Promise<boolean>;
     joinCommunity: (role: number, commitment: number, communityExtension: string, overrides?: CallOverrides) => Promise<{
