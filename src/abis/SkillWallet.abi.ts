@@ -205,6 +205,30 @@ export const SkillWalletABI: JsonFragment[] = [
     name: "getCommunities",
     outputs: [
       {
+        internalType: "address[]",
+        name: "communities",
+        type: "address[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "skillWalletHolder",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "communityExtension",
+        type: "address",
+      },
+    ],
+    name: "getCommunityData",
+    outputs: [
+      {
         components: [
           {
             internalType: "address",
@@ -222,9 +246,9 @@ export const SkillWalletABI: JsonFragment[] = [
             type: "uint256",
           },
         ],
-        internalType: "struct ISkillWallet.CommunityMember[]",
-        name: "communities",
-        type: "tuple[]",
+        internalType: "struct ISkillWallet.CommunityMember",
+        name: "",
+        type: "tuple",
       },
     ],
     stateMutability: "view",
