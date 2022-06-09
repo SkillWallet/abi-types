@@ -8,6 +8,7 @@ __export(require("./DITOCommunity.abi"));
 __export(require("./PartnersAgreement.abi"));
 __export(require("./PartnersRegistry.abi"));
 __export(require("./SkillWallet.abi"));
+__export(require("./CommunityExtension.abi"));
 __export(require("./Gigs.abi"));
 __export(require("./Olympics.abi"));
 __export(require("./Competitions.abi"));

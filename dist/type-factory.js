@@ -44,7 +44,8 @@ const getReturnTypes = (config, stateMutability, eventType) => {
       Example:
       Key: Promise<boolean>;
     */
-    if (config.length === 1 && !config[0].name) {
+    if ((config.length === 1 && !config[0].name) ||
+        (config.length === 1 && config[0].type === "tuple")) {
         const [{ type, components }] = config;
         if (components) {
             names = generateTupleArgumentsWithTypes(components);
@@ -81,7 +82,7 @@ const generateMainFunctions = (mainFunctions, eventType) => {
         }
         const [names, types] = getReturnTypes(curr.outputs, curr.stateMutability, eventType);
         return Object.assign(Object.assign({}, prev), { [curr.name]: {
-                description: `${names ? 'Response type names are: \n\n' + names : ''}`,
+                description: `${names ? "Response type names are: \n\n" + names : ""}`,
                 instanceOf: "Function",
                 tsType: `(${args}) => Promise<${types}>`,
             } });

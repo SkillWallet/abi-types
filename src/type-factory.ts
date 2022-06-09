@@ -20,9 +20,9 @@ const generateArguments = (config: ReadonlyArray<JsonFragmentType>) => {
     .filter(({ name }) => !!name)
     .map(({ name, type, components }) => {
       if (components) {
-        return `${name}:${generateTupleArguments(components)}`
+        return `${name}:${generateTupleArguments(components)}`;
       }
-      return `${name}:${types[type as any] || "string"}`
+      return `${name}:${types[type as any] || "string"}`;
     })
     .join(",");
 };
@@ -34,7 +34,9 @@ const generateTupleArguments = (config: ReadonlyArray<JsonFragmentType>) => {
     .join(",");
 };
 
-const generateTupleArgumentsWithTypes = (config: ReadonlyArray<JsonFragmentType>) => {
+const generateTupleArgumentsWithTypes = (
+  config: ReadonlyArray<JsonFragmentType>
+) => {
   return config
     .filter(({ name }) => !!name)
     .map(({ type, name }) => `${name}: ${types[type as any] || "string"}`)
@@ -53,7 +55,10 @@ const getReturnTypes = (
     Example:
     Key: Promise<boolean>; 
   */
-  if (config.length === 1 && !config[0].name) {
+  if (
+    (config.length === 1 && !config[0].name) ||
+    (config.length === 1 && config[0].type === "tuple")
+  ) {
     const [{ type, components }] = config;
     if (components) {
       names = generateTupleArgumentsWithTypes(components);
@@ -108,7 +113,7 @@ const generateMainFunctions = (
     return {
       ...prev,
       [curr.name as string]: {
-        description: `${names ? 'Response type names are: \n\n' + names : ''}`,
+        description: `${names ? "Response type names are: \n\n" + names : ""}`,
         instanceOf: "Function",
         tsType: `(${args}) => Promise<${types}>`,
       },

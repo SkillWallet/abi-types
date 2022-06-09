@@ -10,6 +10,7 @@ import {
   PartnersAgreementABI,
   PartnersRegistryABI,
   CommunityRegistryABI,
+  CommunityExtensionABI,
   GigsABI,
   OlympicsABI,
   ActivitiesABI,
@@ -87,6 +88,11 @@ const all = [
     path: `src/ProviderFactory/SkillWalletCommunityProvider/sw-contract-functions.ts`,
     abi: SkillWalletCommunityABI,
     preffix: "SkillWalletCommunity",
+  },
+  {
+    path: `src/ProviderFactory/CommunityExtensionProvider/sw-contract-functions.ts`,
+    abi: CommunityExtensionABI,
+    preffix: "CommunityExtension",
   },
   {
     path: `src/ProviderFactory/ActivitiesProvider/sw-contract-functions.ts`,
