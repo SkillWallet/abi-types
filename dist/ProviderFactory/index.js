@@ -9,6 +9,7 @@ __export(require("./CompetitionsProvider"));
 __export(require("./DITOCommunityProvider"));
 __export(require("./GigsProvider"));
 __export(require("./OlympicsProvider"));
+__export(require("./CommunityExtensionProvider"));
 __export(require("./PartnersAgreementProvider"));
 __export(require("./PartnersRegistryProvider"));
 __export(require("./SkillWalletProvider"));

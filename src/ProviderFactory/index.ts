@@ -4,6 +4,7 @@ export * from "./CompetitionsProvider";
 export * from "./DITOCommunityProvider";
 export * from "./GigsProvider";
 export * from "./OlympicsProvider";
+export * from "./CommunityExtensionProvider";
 export * from "./PartnersAgreementProvider";
 export * from "./PartnersRegistryProvider";
 export * from "./SkillWalletProvider";
