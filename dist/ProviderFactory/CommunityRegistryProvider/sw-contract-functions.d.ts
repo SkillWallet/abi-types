@@ -10,16 +10,14 @@ export declare type SWEvent = {
     args: any;
 }[];
 export interface CommunityRegistryContractFunctions {
-    createCommunity: (url: string, template: number, totalMembersAllowed: number, coreTeamMembersCount: number, isPermissioned: boolean, migrateFrom: string, overrides?: CallOverrides) => Promise<{
+    communities: (overrides?: CallOverrides) => Promise<string>;
+    createCommunity: (contractType: number, daoAddr: string, market: number, metadata: string, commitment: number, overrides?: CallOverrides) => Promise<{
         wait: () => Promise<CommunityRegistryContractEvents>;
     }>;
-    initialize: (_skillWalletAddress: string, overrides?: CallOverrides) => Promise<{
-        wait: () => Promise<CommunityRegistryContractEvents>;
-    }>;
-    setVersion: (_version: number, overrides?: CallOverrides) => Promise<{
-        wait: () => Promise<CommunityRegistryContractEvents>;
-    }>;
-    version: (overrides?: CallOverrides) => Promise<number>;
+    getCommunities: (overrides?: CallOverrides) => Promise<string[]>;
+    membershipTypes: (overrides?: CallOverrides) => Promise<string>;
+    numOfCommunities: (overrides?: CallOverrides) => Promise<number>;
+    skillWallet: (overrides?: CallOverrides) => Promise<string>;
 }
 export interface CommunityRegistryContractEvents {
     events: SWEvent;

@@ -2,12 +2,28 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CommunityRegistryABI = [
     {
+        inputs: [
+            {
+                internalType: "address",
+                name: "_skillWallet",
+                type: "address",
+            },
+            {
+                internalType: "address",
+                name: "_membershipTypes",
+                type: "address",
+            },
+        ],
+        stateMutability: "nonpayable",
+        type: "constructor",
+    },
+    {
         anonymous: false,
         inputs: [
             {
                 indexed: false,
                 internalType: "address",
-                name: "comAddr",
+                name: "newCommunityAddress",
                 type: "address",
             },
         ],
@@ -17,75 +33,108 @@ exports.CommunityRegistryABI = [
     {
         inputs: [
             {
+                internalType: "uint256",
+                name: "",
+                type: "uint256",
+            },
+        ],
+        name: "communities",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "uint256",
+                name: "contractType",
+                type: "uint256",
+            },
+            {
+                internalType: "address",
+                name: "daoAddr",
+                type: "address",
+            },
+            {
+                internalType: "uint256",
+                name: "market",
+                type: "uint256",
+            },
+            {
                 internalType: "string",
-                name: "url",
+                name: "metadata",
                 type: "string",
             },
             {
                 internalType: "uint256",
-                name: "template",
+                name: "commitment",
                 type: "uint256",
-            },
-            {
-                internalType: "uint256",
-                name: "totalMembersAllowed",
-                type: "uint256",
-            },
-            {
-                internalType: "uint256",
-                name: "coreTeamMembersCount",
-                type: "uint256",
-            },
-            {
-                internalType: "bool",
-                name: "isPermissioned",
-                type: "bool",
-            },
-            {
-                internalType: "address",
-                name: "migrateFrom",
-                type: "address",
             },
         ],
         name: "createCommunity",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [
+        outputs: [
             {
                 internalType: "address",
-                name: "_skillWalletAddress",
+                name: "_communityAddress",
                 type: "address",
             },
         ],
-        name: "initialize",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
-                internalType: "uint256",
-                name: "_version",
-                type: "uint256",
-            },
-        ],
-        name: "setVersion",
-        outputs: [],
         stateMutability: "nonpayable",
         type: "function",
     },
     {
         inputs: [],
-        name: "version",
+        name: "getCommunities",
+        outputs: [
+            {
+                internalType: "address[]",
+                name: "",
+                type: "address[]",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [],
+        name: "membershipTypes",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [],
+        name: "numOfCommunities",
         outputs: [
             {
                 internalType: "uint256",
                 name: "",
                 type: "uint256",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [],
+        name: "skillWallet",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
             },
         ],
         stateMutability: "view",
