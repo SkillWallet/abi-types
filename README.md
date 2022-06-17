@@ -1,4 +1,4 @@
-# Getting Started with Skillwallet Abi types
+# Getting Started with Aut Abi types
 
 ### Generate types
 
@@ -17,14 +17,13 @@ npm install sw-abi-types
 ```ts
 export interface Web3ProviderExtras {
   event: string; // event emitted from smart contract
-  beforeRequest: Function // useful for cases like change network
-  afterRequest: Function // for cases 
+  beforeRequest: Function; // useful for cases like change network
+  afterRequest: Function; // for cases
   transactionState: (
     state: "started" | "rejected" | "waiting" | "done",
     ...args: any
   ) => void; // state of smart contract call, before user accepts and is complete
 }
-
 ```
 
 ### Usage

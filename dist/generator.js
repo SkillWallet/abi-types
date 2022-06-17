@@ -65,6 +65,11 @@ const all = [
         preffix: "CommunityRegistry",
     },
     {
+        path: `src/ProviderFactory/AutIDProvider/sw-contract-functions.ts`,
+        abi: index_1.AutIDABI,
+        preffix: "AutID",
+    },
+    {
         path: `src/ProviderFactory/PartnersRegistryProvider/sw-contract-functions.ts`,
         abi: index_1.PartnersRegistryABI,
         preffix: "PartnersRegistry",

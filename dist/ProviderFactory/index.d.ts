@@ -6,6 +6,7 @@ export * from "./GigsProvider";
 export * from "./OlympicsProvider";
 export * from "./CommunityExtensionProvider";
 export * from "./PartnersAgreementProvider";
+export * from "./AutIDProvider";
 export * from "./PartnersRegistryProvider";
 export * from "./SkillWalletProvider";
 export * from "./ActivitiesProvider";

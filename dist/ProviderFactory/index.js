@@ -11,6 +11,7 @@ __export(require("./GigsProvider"));
 __export(require("./OlympicsProvider"));
 __export(require("./CommunityExtensionProvider"));
 __export(require("./PartnersAgreementProvider"));
+__export(require("./AutIDProvider"));
 __export(require("./PartnersRegistryProvider"));
 __export(require("./SkillWalletProvider"));
 __export(require("./ActivitiesProvider"));

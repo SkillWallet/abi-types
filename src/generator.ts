@@ -10,6 +10,7 @@ import {
   PartnersAgreementABI,
   PartnersRegistryABI,
   CommunityRegistryABI,
+  AutIDABI,
   CommunityExtensionABI,
   GigsABI,
   OlympicsABI,
@@ -73,6 +74,12 @@ const all = [
     path: `src/ProviderFactory/CommunityRegistryProvider/sw-contract-functions.ts`,
     abi: CommunityRegistryABI,
     preffix: "CommunityRegistry",
+  },
+
+  {
+    path: `src/ProviderFactory/AutIDProvider/sw-contract-functions.ts`,
+    abi: AutIDABI,
+    preffix: "AutID",
   },
   {
     path: `src/ProviderFactory/PartnersRegistryProvider/sw-contract-functions.ts`,
