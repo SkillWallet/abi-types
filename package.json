@@ -1,12 +1,13 @@
 {
   "name": "@skill-wallet/sw-abi-types",
-  "version": "0.0.41",
+  "version": "0.0.42",
   "description": "Aut contract functions",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc && node ./dist/generator.js && tsc"
+    "build": "tsc && npm run generate-dirs && node ./dist/generator.js && tsc",
+    "generate-dirs": "node ./dist/gen-provider-dirs.js"
   },
   "dependencies": {
     "@types/prettier": "^2.4.1",

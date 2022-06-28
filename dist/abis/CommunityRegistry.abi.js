@@ -5,7 +5,7 @@ exports.CommunityRegistryABI = [
         inputs: [
             {
                 internalType: "address",
-                name: "_skillWallet",
+                name: "_autIDAddr",
                 type: "address",
             },
             {
@@ -29,6 +29,19 @@ exports.CommunityRegistryABI = [
         ],
         name: "CommunityCreated",
         type: "event",
+    },
+    {
+        inputs: [],
+        name: "autIDAddr",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
     },
     {
         inputs: [
@@ -122,19 +135,6 @@ exports.CommunityRegistryABI = [
                 internalType: "uint256",
                 name: "",
                 type: "uint256",
-            },
-        ],
-        stateMutability: "view",
-        type: "function",
-    },
-    {
-        inputs: [],
-        name: "skillWallet",
-        outputs: [
-            {
-                internalType: "address",
-                name: "",
-                type: "address",
             },
         ],
         stateMutability: "view",

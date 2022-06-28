@@ -15,7 +15,12 @@ const types = {
 };
 const generateArguments = (config) => {
     return config
-        .filter(({ name }) => !!name)
+        .map((type, index) => {
+        if (!type.name) {
+            type.name = `argument_${index}`;
+        }
+        return type;
+    })
         .map(({ name, type, components }) => {
         if (components) {
             return `${name}:${generateTupleArguments(components)}`;
@@ -26,13 +31,23 @@ const generateArguments = (config) => {
 };
 const generateTupleArguments = (config) => {
     return config
-        .filter(({ name }) => !!name)
+        .map((type, index) => {
+        if (!type.name) {
+            type.name = `argument_${index}`;
+        }
+        return type;
+    })
         .map(({ type }) => types[type] || "string")
         .join(",");
 };
 const generateTupleArgumentsWithTypes = (config) => {
     return config
-        .filter(({ name }) => !!name)
+        .map((type, index) => {
+        if (!type.name) {
+            type.name = `argument_${index}`;
+        }
+        return type;
+    })
         .map(({ type, name }) => `${name}: ${types[type] || "string"}`)
         .join("\n");
 };

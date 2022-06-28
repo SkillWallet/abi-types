@@ -10,9 +10,14 @@ export declare type SWEvent = {
     args: any;
 }[];
 export interface CommunityExtensionContractFunctions {
+    addActivitiesAddress: (activityAddr: string, overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<CommunityExtensionContractEvents>;
+    }>;
     addURL: (_url: string, overrides?: CallOverrides) => Promise<{
         wait: () => Promise<CommunityExtensionContractEvents>;
     }>;
+    autIDAddr: (overrides?: CallOverrides) => Promise<string>;
+    getActivitiesWhitelist: (overrides?: CallOverrides) => Promise<string[]>;
     getAllMembers: (overrides?: CallOverrides) => Promise<string[]>;
     /**
      * Response type names are:
@@ -29,11 +34,11 @@ export interface CommunityExtensionContractFunctions {
     getInteractionsPerUser: (member: string, overrides?: CallOverrides) => Promise<number>;
     getURLs: (overrides?: CallOverrides) => Promise<string[]>;
     hasPassedOnboarding: (member: string, overrides?: CallOverrides) => Promise<boolean>;
-    isActivityWhitelisted: (overrides?: CallOverrides) => Promise<boolean>;
-    isCoreTeam: (overrides?: CallOverrides) => Promise<boolean>;
+    isActivityWhitelisted: (argument_0: string, overrides?: CallOverrides) => Promise<boolean>;
+    isCoreTeam: (argument_0: string, overrides?: CallOverrides) => Promise<boolean>;
     isMemberOfExtendedDAO: (member: string, overrides?: CallOverrides) => Promise<boolean>;
     isMemberOfOriginalDAO: (member: string, overrides?: CallOverrides) => Promise<boolean>;
-    isMemberOfTheCom: (overrides?: CallOverrides) => Promise<boolean>;
+    isMemberOfTheCom: (argument_0: string, overrides?: CallOverrides) => Promise<boolean>;
     isURLListed: (_url: string, overrides?: CallOverrides) => Promise<boolean>;
     join: (newMember: string, overrides?: CallOverrides) => Promise<{
         wait: () => Promise<CommunityExtensionContractEvents>;
@@ -47,7 +52,6 @@ export interface CommunityExtensionContractFunctions {
     setDiscordServer: (discordServer: string, overrides?: CallOverrides) => Promise<{
         wait: () => Promise<CommunityExtensionContractEvents>;
     }>;
-    skillWallet: (overrides?: CallOverrides) => Promise<string>;
 }
 export interface CommunityExtensionContractEvents {
     events: SWEvent;

@@ -4,16 +4,10 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./CommunityRegistry.abi"));
-__export(require("./DITOCommunity.abi"));
-__export(require("./PartnersAgreement.abi"));
-__export(require("./PartnersRegistry.abi"));
-__export(require("./SkillWallet.abi"));
+__export(require("./CommunityCall.abi"));
 __export(require("./CommunityExtension.abi"));
-__export(require("./Gigs.abi"));
 __export(require("./AutID.abi"));
-__export(require("./Olympics.abi"));
-__export(require("./Competitions.abi"));
-__export(require("./Checkpoints.abi"));
-__export(require("./Activities.abi"));
-__export(require("./SkillWalletCommunity.abi"));
+__export(require("./Interactions.abi"));
+__export(require("./Polls.abi"));
+__export(require("./Tasks.abi"));
 //# sourceMappingURL=index.js.map

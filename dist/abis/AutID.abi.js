@@ -260,6 +260,25 @@ exports.AutIDABI = [
     {
         inputs: [
             {
+                internalType: "string",
+                name: "",
+                type: "string",
+            },
+        ],
+        name: "discordIDToAddress",
+        outputs: [
+            {
+                internalType: "address",
+                name: "",
+                type: "address",
+            },
+        ],
+        stateMutability: "view",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
                 internalType: "address",
                 name: "communityExtension",
                 type: "address",

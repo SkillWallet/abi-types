@@ -17,7 +17,12 @@ const types: any = {
 
 const generateArguments = (config: ReadonlyArray<JsonFragmentType>) => {
   return config
-    .filter(({ name }) => !!name)
+    .map((type, index) => {
+      if (!type.name) {
+        type.name = `argument_${index}`;
+      }
+      return type;
+    })
     .map(({ name, type, components }) => {
       if (components) {
         return `${name}:${generateTupleArguments(components)}`;
@@ -29,7 +34,12 @@ const generateArguments = (config: ReadonlyArray<JsonFragmentType>) => {
 
 const generateTupleArguments = (config: ReadonlyArray<JsonFragmentType>) => {
   return config
-    .filter(({ name }) => !!name)
+    .map((type, index) => {
+      if (!type.name) {
+        type.name = `argument_${index}`;
+      }
+      return type;
+    })
     .map(({ type }) => types[type as any] || "string")
     .join(",");
 };
@@ -38,7 +48,12 @@ const generateTupleArgumentsWithTypes = (
   config: ReadonlyArray<JsonFragmentType>
 ) => {
   return config
-    .filter(({ name }) => !!name)
+    .map((type, index) => {
+      if (!type.name) {
+        type.name = `argument_${index}`;
+      }
+      return type;
+    })
     .map(({ type, name }) => `${name}: ${types[type as any] || "string"}`)
     .join("\n");
 };

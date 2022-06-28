@@ -5,7 +5,12 @@ export const CommunityExtensionABI: JsonFragment[] = [
     inputs: [
       {
         internalType: "address",
-        name: "sw",
+        name: "deployer",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "autAddr",
         type: "address",
       },
       {
@@ -71,6 +76,19 @@ export const CommunityExtensionABI: JsonFragment[] = [
   {
     inputs: [
       {
+        internalType: "address",
+        name: "activityAddr",
+        type: "address",
+      },
+    ],
+    name: "addActivitiesAddress",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
         internalType: "string",
         name: "_url",
         type: "string",
@@ -79,6 +97,32 @@ export const CommunityExtensionABI: JsonFragment[] = [
     name: "addURL",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "autIDAddr",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getActivitiesWhitelist",
+    outputs: [
+      {
+        internalType: "address[]",
+        name: "",
+        type: "address[]",
+      },
+    ],
+    stateMutability: "view",
     type: "function",
   },
   {
@@ -367,19 +411,6 @@ export const CommunityExtensionABI: JsonFragment[] = [
     name: "setDiscordServer",
     outputs: [],
     stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "skillWallet",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
     type: "function",
   },
 ];

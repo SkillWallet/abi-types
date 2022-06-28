@@ -1,5 +1,5 @@
 export interface JsonFragmentType {
-  readonly name?: string;
+  name?: string;
   readonly indexed?: boolean;
   readonly type?: string;
   readonly internalType?: any; // @TODO: in v6 reduce type

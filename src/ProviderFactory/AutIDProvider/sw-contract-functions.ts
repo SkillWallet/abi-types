@@ -22,9 +22,10 @@ export interface AutIDContractFunctions {
     tokenId: number,
     overrides?: CallOverrides
   ) => Promise<{wait: () => Promise<AutIDContractEvents>}>;
-  autIDToDiscordID: (overrides?: CallOverrides) => Promise<string>;
-  autIDUsername: (overrides?: CallOverrides) => Promise<string>;
+  autIDToDiscordID: (argument_0: number, overrides?: CallOverrides) => Promise<string>;
+  autIDUsername: (argument_0: string, overrides?: CallOverrides) => Promise<string>;
   balanceOf: (owner: string, overrides?: CallOverrides) => Promise<number>;
+  discordIDToAddress: (argument_0: string, overrides?: CallOverrides) => Promise<string>;
   editCommitment: (
     communityExtension: string,
     newCommitment: number,

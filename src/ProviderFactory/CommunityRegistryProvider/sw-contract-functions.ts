@@ -16,7 +16,8 @@ export type SWEvent = {
 }[];
 
 export interface CommunityRegistryContractFunctions {
-  communities: (overrides?: CallOverrides) => Promise<string>;
+  autIDAddr: (overrides?: CallOverrides) => Promise<string>;
+  communities: (argument_0: number, overrides?: CallOverrides) => Promise<string>;
   createCommunity: (
     contractType: number,
     daoAddr: string,
@@ -28,7 +29,6 @@ export interface CommunityRegistryContractFunctions {
   getCommunities: (overrides?: CallOverrides) => Promise<string[]>;
   membershipTypes: (overrides?: CallOverrides) => Promise<string>;
   numOfCommunities: (overrides?: CallOverrides) => Promise<number>;
-  skillWallet: (overrides?: CallOverrides) => Promise<string>;
 }
 export interface CommunityRegistryContractEvents {
   events: SWEvent;

@@ -8,11 +8,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const json_schema_to_typescript_1 = require("json-schema-to-typescript");
+const read_abi_names_1 = require("./read-abi-names");
 const { dedent } = require("tslint/lib/utils");
-const index_1 = require("./abis/index");
 const type_factory_1 = require("./type-factory");
 function generateTypes(path, abi, preffix) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -23,97 +30,26 @@ function generateTypes(path, abi, preffix) {
     });
 }
 exports.generateTypes = generateTypes;
-const all = [
-    {
-        path: `src/ProviderFactory/CheckpointsProvider/sw-contract-functions.ts`,
-        abi: index_1.CheckpointsABI,
-        preffix: "Checkpoints",
-    },
-    {
-        path: `src/ProviderFactory/CommunityRegistryProvider/sw-contract-functions.ts`,
-        abi: index_1.SkillWalletABI,
-        preffix: "CommunityRegistry",
-    },
-    {
-        path: `src/ProviderFactory/CompetitionsProvider/sw-contract-functions.ts`,
-        abi: index_1.CompetitionsABI,
-        preffix: "Competitions",
-    },
-    {
-        path: `src/ProviderFactory/DITOCommunityProvider/sw-contract-functions.ts`,
-        abi: index_1.DITOCommunityABI,
-        preffix: "DITOCommunity",
-    },
-    {
-        path: `src/ProviderFactory/GigsProvider/sw-contract-functions.ts`,
-        abi: index_1.GigsABI,
-        preffix: "Gigs",
-    },
-    {
-        path: `src/ProviderFactory/OlympicsProvider/sw-contract-functions.ts`,
-        abi: index_1.OlympicsABI,
-        preffix: "Olympics",
-    },
-    {
-        path: `src/ProviderFactory/PartnersAgreementProvider/sw-contract-functions.ts`,
-        abi: index_1.PartnersAgreementABI,
-        preffix: "PartnersAgreement",
-    },
-    {
-        path: `src/ProviderFactory/CommunityRegistryProvider/sw-contract-functions.ts`,
-        abi: index_1.CommunityRegistryABI,
-        preffix: "CommunityRegistry",
-    },
-    {
-        path: `src/ProviderFactory/AutIDProvider/sw-contract-functions.ts`,
-        abi: index_1.AutIDABI,
-        preffix: "AutID",
-    },
-    {
-        path: `src/ProviderFactory/PartnersRegistryProvider/sw-contract-functions.ts`,
-        abi: index_1.PartnersRegistryABI,
-        preffix: "PartnersRegistry",
-    },
-    {
-        path: `src/ProviderFactory/SkillWalletProvider/sw-contract-functions.ts`,
-        abi: index_1.SkillWalletABI,
-        preffix: "SkillWallet",
-    },
-    {
-        path: `src/ProviderFactory/SkillWalletCommunityProvider/sw-contract-functions.ts`,
-        abi: index_1.SkillWalletCommunityABI,
-        preffix: "SkillWalletCommunity",
-    },
-    {
-        path: `src/ProviderFactory/CommunityExtensionProvider/sw-contract-functions.ts`,
-        abi: index_1.CommunityExtensionABI,
-        preffix: "CommunityExtension",
-    },
-    {
-        path: `src/ProviderFactory/ActivitiesProvider/sw-contract-functions.ts`,
-        abi: index_1.ActivitiesABI,
-        preffix: "Activities",
-    },
-];
-const generate = () => __awaiter(void 0, void 0, void 0, function* () {
-    for (let i = 0; i < all.length; i += 1) {
-        const { path, abi, preffix } = all[i];
+read_abi_names_1.getAbiFileNames().then((names) => __awaiter(void 0, void 0, void 0, function* () {
+    for (const name in names) {
+        const path = `src/ProviderFactory/${name}Provider/sw-contract-functions.ts`;
         try {
             fs_1.unlinkSync(path);
         }
         catch (err) {
-            console.error(err);
+            // console.error(err);
         }
-        yield generateTypes(path, abi, preffix);
         try {
+            const abiImport = yield Promise.resolve().then(() => __importStar(require(`././abis/index`)));
+            const abi = abiImport[`${name}ABI`];
+            yield generateTypes(path, abi, name);
             yield updateTsFile(path);
         }
         catch (err) {
             console.error(err);
         }
     }
-});
-generate();
+}));
 const updateTsFile = (dirPath) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const fileData = fs_1.readFileSync(dirPath);
@@ -122,8 +58,7 @@ const updateTsFile = (dirPath) => __awaiter(void 0, void 0, void 0, function* ()
       ${fileAsStr}`, { encoding: "utf8" });
     }
     catch (err) {
-        console.log(err);
-        // handle error here
+        // console.log(err);
     }
 });
 //# sourceMappingURL=generator.js.map
