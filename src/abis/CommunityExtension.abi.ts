@@ -49,6 +49,30 @@ export const CommunityExtensionABI: JsonFragment[] = [
   },
   {
     anonymous: false,
+    inputs: [],
+    name: "ActivitiesAddressAdded",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [],
+    name: "DiscordServerSet",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [],
+    name: "MemberAdded",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [],
+    name: "MetadataUriUpdated",
+    type: "event",
+  },
+  {
+    anonymous: false,
     inputs: [
       {
         indexed: false,
@@ -66,11 +90,24 @@ export const CommunityExtensionABI: JsonFragment[] = [
       {
         indexed: false,
         internalType: "string",
-        name: "_url",
+        name: "url",
         type: "string",
       },
     ],
     name: "UrlAdded",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "string",
+        name: "url",
+        type: "string",
+      },
+    ],
+    name: "UrlRemoved",
     type: "event",
   },
   {
@@ -79,6 +116,11 @@ export const CommunityExtensionABI: JsonFragment[] = [
         internalType: "address",
         name: "activityAddr",
         type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "actType",
+        type: "uint256",
       },
     ],
     name: "addActivitiesAddress",
@@ -117,9 +159,21 @@ export const CommunityExtensionABI: JsonFragment[] = [
     name: "getActivitiesWhitelist",
     outputs: [
       {
-        internalType: "address[]",
+        components: [
+          {
+            internalType: "address",
+            name: "actAddr",
+            type: "address",
+          },
+          {
+            internalType: "uint256",
+            name: "actType",
+            type: "uint256",
+          },
+        ],
+        internalType: "struct ICommunityExtension.Activity[]",
         name: "",
-        type: "address[]",
+        type: "tuple[]",
       },
     ],
     stateMutability: "view",
@@ -409,6 +463,19 @@ export const CommunityExtensionABI: JsonFragment[] = [
       },
     ],
     name: "setDiscordServer",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "metadata",
+        type: "string",
+      },
+    ],
+    name: "setMetadataUri",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",

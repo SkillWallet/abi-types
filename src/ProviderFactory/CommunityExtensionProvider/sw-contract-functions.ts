@@ -18,11 +18,18 @@ export type SWEvent = {
 export interface CommunityExtensionContractFunctions {
   addActivitiesAddress: (
     activityAddr: string,
+    actType: number,
     overrides?: CallOverrides
   ) => Promise<{wait: () => Promise<CommunityExtensionContractEvents>}>;
   addURL: (_url: string, overrides?: CallOverrides) => Promise<{wait: () => Promise<CommunityExtensionContractEvents>}>;
   autIDAddr: (overrides?: CallOverrides) => Promise<string>;
-  getActivitiesWhitelist: (overrides?: CallOverrides) => Promise<string[]>;
+  /**
+   * Response type names are:
+   *
+   * actAddr: string
+   * actType: number
+   */
+  getActivitiesWhitelist: (overrides?: CallOverrides) => Promise<[string, number]>;
   getAllMembers: (overrides?: CallOverrides) => Promise<string[]>;
   /**
    * Response type names are:
@@ -61,12 +68,21 @@ export interface CommunityExtensionContractFunctions {
     discordServer: string,
     overrides?: CallOverrides
   ) => Promise<{wait: () => Promise<CommunityExtensionContractEvents>}>;
+  setMetadataUri: (
+    metadata: string,
+    overrides?: CallOverrides
+  ) => Promise<{wait: () => Promise<CommunityExtensionContractEvents>}>;
 }
 export interface CommunityExtensionContractEvents {
   events: SWEvent;
 }
 
 export enum CommunityExtensionContractEventType {
+  ActivitiesAddressAdded = "ActivitiesAddressAdded",
+  DiscordServerSet = "DiscordServerSet",
+  MemberAdded = "MemberAdded",
+  MetadataUriUpdated = "MetadataUriUpdated",
   OnboardingPassed = "OnboardingPassed",
-  UrlAdded = "UrlAdded"
+  UrlAdded = "UrlAdded",
+  UrlRemoved = "UrlRemoved"
 }
