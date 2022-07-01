@@ -13,6 +13,9 @@ export interface CommunityExtensionContractFunctions {
     addActivitiesAddress: (activityAddr: string, actType: number, overrides?: CallOverrides) => Promise<{
         wait: () => Promise<CommunityExtensionContractEvents>;
     }>;
+    addToCoreTeam: (member: string, overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<CommunityExtensionContractEvents>;
+    }>;
     addURL: (_url: string, overrides?: CallOverrides) => Promise<{
         wait: () => Promise<CommunityExtensionContractEvents>;
     }>;
@@ -36,6 +39,7 @@ export interface CommunityExtensionContractFunctions {
      * discordServer: string
      */
     getComData: (overrides?: CallOverrides) => Promise<[number, string, string, number, number, string]>;
+    getCoreTeamWhitelist: (overrides?: CallOverrides) => Promise<string[]>;
     getInteractionsAddr: (overrides?: CallOverrides) => Promise<string>;
     getInteractionsPerUser: (member: string, overrides?: CallOverrides) => Promise<number>;
     getURLs: (overrides?: CallOverrides) => Promise<string[]>;
@@ -50,6 +54,12 @@ export interface CommunityExtensionContractFunctions {
         wait: () => Promise<CommunityExtensionContractEvents>;
     }>;
     passOnboarding: (members: string[], overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<CommunityExtensionContractEvents>;
+    }>;
+    removeActivitiesAddress: (activityAddr: string, overrides?: CallOverrides) => Promise<{
+        wait: () => Promise<CommunityExtensionContractEvents>;
+    }>;
+    removeFromCoreTeam: (member: string, overrides?: CallOverrides) => Promise<{
         wait: () => Promise<CommunityExtensionContractEvents>;
     }>;
     removeURL: (_url: string, overrides?: CallOverrides) => Promise<{
@@ -67,6 +77,9 @@ export interface CommunityExtensionContractEvents {
 }
 export declare enum CommunityExtensionContractEventType {
     ActivitiesAddressAdded = "ActivitiesAddressAdded",
+    ActivitiesAddressRemoved = "ActivitiesAddressRemoved",
+    CoreTeamMemberAdded = "CoreTeamMemberAdded",
+    CoreTeamMemberRemoved = "CoreTeamMemberRemoved",
     DiscordServerSet = "DiscordServerSet",
     MemberAdded = "MemberAdded",
     MetadataUriUpdated = "MetadataUriUpdated",

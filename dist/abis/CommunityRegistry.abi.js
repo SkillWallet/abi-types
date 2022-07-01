@@ -115,13 +115,19 @@ exports.CommunityRegistryABI = [
         type: "function",
     },
     {
-        inputs: [],
-        name: "membershipTypes",
-        outputs: [
+        inputs: [
             {
                 internalType: "address",
-                name: "",
+                name: "deployer",
                 type: "address",
+            },
+        ],
+        name: "getCommunitiesByDeployer",
+        outputs: [
+            {
+                internalType: "address[]",
+                name: "",
+                type: "address[]",
             },
         ],
         stateMutability: "view",
@@ -129,12 +135,12 @@ exports.CommunityRegistryABI = [
     },
     {
         inputs: [],
-        name: "numOfCommunities",
+        name: "membershipTypes",
         outputs: [
             {
-                internalType: "uint256",
+                internalType: "address",
                 name: "",
-                type: "uint256",
+                type: "address",
             },
         ],
         stateMutability: "view",

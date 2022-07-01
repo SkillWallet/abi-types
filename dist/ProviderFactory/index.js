@@ -9,4 +9,5 @@ __export(require("./InteractionsProvider"));
 __export(require("./web3.provider"));
 __export(require("./CommunityCallProvider"));
 __export(require("./AutIDProvider"));
+__export(require("./PollsProvider"));
 //# sourceMappingURL=index.js.map

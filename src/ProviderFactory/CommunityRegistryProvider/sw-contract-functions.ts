@@ -27,8 +27,8 @@ export interface CommunityRegistryContractFunctions {
     overrides?: CallOverrides
   ) => Promise<{wait: () => Promise<CommunityRegistryContractEvents>}>;
   getCommunities: (overrides?: CallOverrides) => Promise<string[]>;
+  getCommunitiesByDeployer: (deployer: string, overrides?: CallOverrides) => Promise<string[]>;
   membershipTypes: (overrides?: CallOverrides) => Promise<string>;
-  numOfCommunities: (overrides?: CallOverrides) => Promise<number>;
 }
 export interface CommunityRegistryContractEvents {
   events: SWEvent;

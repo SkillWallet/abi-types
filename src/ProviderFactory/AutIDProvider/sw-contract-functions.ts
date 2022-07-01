@@ -76,6 +76,10 @@ export interface AutIDContractFunctions {
     approved: boolean,
     overrides?: CallOverrides
   ) => Promise<{wait: () => Promise<AutIDContractEvents>}>;
+  setMetadataUri: (
+    metadataUri: string,
+    overrides?: CallOverrides
+  ) => Promise<{wait: () => Promise<AutIDContractEvents>}>;
   supportsInterface: (interfaceId: string, overrides?: CallOverrides) => Promise<boolean>;
   symbol: (overrides?: CallOverrides) => Promise<string>;
   tokenURI: (tokenId: number, overrides?: CallOverrides) => Promise<string>;
@@ -102,5 +106,6 @@ export enum AutIDContractEventType {
   CommunityJoined = "CommunityJoined",
   CommunityWithdrown = "CommunityWithdrown",
   DiscordIDConnectedToAutID = "DiscordIDConnectedToAutID",
+  MetadataUriSet = "MetadataUriSet",
   Transfer = "Transfer"
 }

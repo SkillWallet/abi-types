@@ -27,6 +27,7 @@ export interface PollsContractFunctions {
      * dueDate: number
      */
     getById: (id: number, overrides?: CallOverrides) => Promise<[number, string, string, boolean, number, number]>;
+    getIDCounter: (overrides?: CallOverrides) => Promise<number>;
 }
 export interface PollsContractEvents {
     events: SWEvent;

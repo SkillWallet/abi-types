@@ -148,6 +148,25 @@ exports.AutIDABI = [
         anonymous: false,
         inputs: [
             {
+                indexed: false,
+                internalType: "uint256",
+                name: "tokenId",
+                type: "uint256",
+            },
+            {
+                indexed: false,
+                internalType: "string",
+                name: "metadataUri",
+                type: "string",
+            },
+        ],
+        name: "MetadataUriSet",
+        type: "event",
+    },
+    {
+        anonymous: false,
+        inputs: [
+            {
                 indexed: true,
                 internalType: "address",
                 name: "from",
@@ -574,6 +593,19 @@ exports.AutIDABI = [
             },
         ],
         name: "setApprovalForAll",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+    },
+    {
+        inputs: [
+            {
+                internalType: "string",
+                name: "metadataUri",
+                type: "string",
+            },
+        ],
+        name: "setMetadataUri",
         outputs: [],
         stateMutability: "nonpayable",
         type: "function",

@@ -38,6 +38,7 @@ getAbiFileNames().then(async (names: any) => {
   }
 });
 
+
 const updateTsFile = async (dirPath) => {
   try {
     const fileData = readFileSync(dirPath);

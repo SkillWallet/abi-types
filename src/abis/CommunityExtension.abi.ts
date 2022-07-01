@@ -56,6 +56,38 @@ export const CommunityExtensionABI: JsonFragment[] = [
   {
     anonymous: false,
     inputs: [],
+    name: "ActivitiesAddressRemoved",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "member",
+        type: "address",
+      },
+    ],
+    name: "CoreTeamMemberAdded",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "member",
+        type: "address",
+      },
+    ],
+    name: "CoreTeamMemberRemoved",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [],
     name: "DiscordServerSet",
     type: "event",
   },
@@ -124,6 +156,19 @@ export const CommunityExtensionABI: JsonFragment[] = [
       },
     ],
     name: "addActivitiesAddress",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "member",
+        type: "address",
+      },
+    ],
+    name: "addToCoreTeam",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -232,6 +277,19 @@ export const CommunityExtensionABI: JsonFragment[] = [
         internalType: "struct ICommunityExtension.CommunityData",
         name: "data",
         type: "tuple",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getCoreTeamWhitelist",
+    outputs: [
+      {
+        internalType: "address[]",
+        name: "",
+        type: "address[]",
       },
     ],
     stateMutability: "view",
@@ -437,6 +495,32 @@ export const CommunityExtensionABI: JsonFragment[] = [
       },
     ],
     name: "passOnboarding",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "activityAddr",
+        type: "address",
+      },
+    ],
+    name: "removeActivitiesAddress",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "member",
+        type: "address",
+      },
+    ],
+    name: "removeFromCoreTeam",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",

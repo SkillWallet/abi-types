@@ -9,6 +9,7 @@ var AutIDContractEventType;
     AutIDContractEventType["CommunityJoined"] = "CommunityJoined";
     AutIDContractEventType["CommunityWithdrown"] = "CommunityWithdrown";
     AutIDContractEventType["DiscordIDConnectedToAutID"] = "DiscordIDConnectedToAutID";
+    AutIDContractEventType["MetadataUriSet"] = "MetadataUriSet";
     AutIDContractEventType["Transfer"] = "Transfer";
 })(AutIDContractEventType = exports.AutIDContractEventType || (exports.AutIDContractEventType = {}));
 //# sourceMappingURL=sw-contract-functions.js.map
